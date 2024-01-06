@@ -1,0 +1,6 @@
+# files
+**/tsconfig.json
+
+# paths
+node_modules/
+storybook-static/

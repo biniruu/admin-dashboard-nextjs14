@@ -1,0 +1,17 @@
+# files
+**/*.js
+**/*.json
+**/*.lock
+**/*.spec.js
+**/*.spec.jsx
+**/*.spec.ts
+**/*.spec.tsx
+**/*.svg
+**/*.test.js
+**/*.test.jsx
+**/*.test.ts
+**/*.test.tsx
+**/*.ts
+
+# paths
+node_modules/

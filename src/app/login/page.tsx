@@ -1,5 +1,5 @@
-function page() {
-  return <div>login page</div>
+function LoginPage() {
+  return <div>LoginPage</div>
 }
 
-export default page
+export default LoginPage

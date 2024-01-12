@@ -17,8 +17,8 @@ function Layout({ children }: Children) {
       </div>
       <div className={styles.content}>
         <Navbar />
+        {children}
       </div>
-      {children}
     </div>
   )
 }

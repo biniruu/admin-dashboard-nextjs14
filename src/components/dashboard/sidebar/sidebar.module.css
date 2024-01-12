@@ -1,0 +1,37 @@
+.container {
+  position: sticky;
+  top: 2.5rem;
+}
+
+.user {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.user-image {
+  background-repeat: 50%;
+  object-fit: cover;
+}
+
+.user-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 500;
+}
+
+.user-title {
+  color: var(--text-soft);
+  font-size: 0.75rem;
+}
+
+.cat {
+  color: var(--text-soft);
+  font-size: 0.8125rem;
+  font-weight: bold;
+  margin: 0.625rem 0;
+}

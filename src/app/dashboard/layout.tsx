@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 
+import styles from './dashboard.module.css'
+
 import Navbar from 'components/dashboard/navbar/Navbar'
 import Sidebar from 'components/dashboard/sidebar/Sidebar'
 
@@ -9,9 +11,13 @@ interface Children {
 
 function Layout({ children }: Children) {
   return (
-    <div>
-      <Sidebar />
-      <Navbar />
+    <div className={styles.container}>
+      <div className={styles.menu}>
+        <Sidebar />
+      </div>
+      <div className={styles.content}>
+        <Navbar />
+      </div>
       {children}
     </div>
   )

@@ -35,3 +35,20 @@
   font-weight: bold;
   margin: 0.625rem 0;
 }
+
+.logout {
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  display: flex;
+  gap: 0.625rem;
+  margin: 0.3125rem 0;
+  padding: 1.25rem;
+  width: 100%;
+
+  &:hover {
+    background: #2e374a;
+  }
+}

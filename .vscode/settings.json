@@ -105,10 +105,7 @@
   "npm.keybindingsChangedWarningShown": true,
   "git.mergeEditor": true, // conflict 시 diff 화면 스타일을 3-way merge로 표시
   "problems.autoReveal": false,
-  "projectManager.git.baseFolders": [
-    "/Users/biniruu/Projects",
-    "/Users/biniruu/Learning"
-  ],
+  "projectManager.git.baseFolders": ["/Users/biniruu/Projects", "/Users/biniruu/Learning"],
   "puglint.enable": true,
   "python.jediEnabled": false,
   "pythonPreview.codeFooterDocs.fontSize": 13,
@@ -199,6 +196,7 @@
     "Orta",
     "Polacode",
     "reduxjs",
+    "Rightbar",
     "tailwindcss",
     "TTFB",
     "vanillajs",

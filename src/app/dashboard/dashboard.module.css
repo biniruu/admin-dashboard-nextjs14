@@ -12,3 +12,26 @@
   flex: 4;
   padding: 1.25rem;
 }
+
+.wrapper {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.main {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cards {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: space-between;
+}
+
+.side {
+  flex: 1;
+}

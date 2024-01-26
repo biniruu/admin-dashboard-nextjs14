@@ -1,0 +1,49 @@
+.container {
+  background: var(--bg-soft);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.title {
+  color: var(--text-soft);
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+
+  & > td {
+    padding: 10px;
+  }
+}
+
+.user {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+
+  &-image {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.status {
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.pending {
+  background: #f7cb7375;
+}
+
+.done {
+  background: #afd6ee75;
+}
+
+.cancelled {
+  background: #f7737375;
+}

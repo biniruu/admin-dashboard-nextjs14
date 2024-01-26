@@ -13,6 +13,7 @@
     "python": "$pythonPath -u $fullFileName"
   },
   "color-highlight.markRuler": false, // minimap에서 color-highlight 활성화
+  "color-highlight.matchWords": true, // 'red'나 'blue'처럼 색상명을 직접 입력했을 때도 색상 표시
   "compile-hero.disable-compile-files-on-did-save-code": false, // 저장 시 파일 자동 변환 방지
   "compile-hero.ignore": ["**/node_modules/*"],
   "compile-hero.scss-output-directory": "../css", // .css로 변환된 .scss 파일이 저장될 폴더 경로

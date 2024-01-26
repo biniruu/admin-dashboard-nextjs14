@@ -1,8 +1,4 @@
 {
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.tabSize": 4
-  },
   "autoimport.useSemiColon": false, // auto import 기능으로 import한 모듈에 세미콜론 삽입
   "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
   "aws.telemetry": false,

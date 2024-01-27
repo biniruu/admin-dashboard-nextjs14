@@ -8,7 +8,7 @@ function Dashboard() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
-        <div className={styles.card}>
+        <div className={styles.cards}>
           <Card />
           <Card />
           <Card />

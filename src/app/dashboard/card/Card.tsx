@@ -4,7 +4,7 @@ import styles from './card.module.css'
 
 function Card() {
   return (
-    <div>
+    <div className={styles.container}>
       <MdSupervisedUserCircle size={24} />
       <div className={styles.texts}>
         <span className={styles.title}>Total Users</span>

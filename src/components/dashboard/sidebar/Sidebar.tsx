@@ -12,8 +12,8 @@ function Sidebar() {
       <div className={styles.user}>
         <Image src="/noavatar.png" width={50} height={50} className={styles['user-image']} alt="" />
         <div className={styles['user-detail']}>
-          <span className={styles.username}>John Joe</span>
-          <span className={styles['user-title']}>Administrator</span>
+          <span className={styles.username}>john joe</span>
+          <span className={styles['user-title']}>administrator</span>
         </div>
       </div>
       <ul>
@@ -28,7 +28,7 @@ function Sidebar() {
       </ul>
       <button className={styles.logout}>
         <MdLogout />
-        Logout
+        logout
       </button>
     </div>
   )

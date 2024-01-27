@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import { MdLogout } from 'react-icons/md'
 
-import MenuLink from './menuLink/MenuLink'
+import MenuLink from '../menuLink/MenuLink'
+
 import styles from './sidebar.module.css'
 
 import menuItems from 'data/menuItems'

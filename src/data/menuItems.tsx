@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import {
   MdAnalytics,
   MdAttachMoney,
@@ -10,7 +11,18 @@ import {
   MdWork,
 } from 'react-icons/md'
 
-const menuItems = [
+interface Menu {
+  title: string
+  path: string
+  icon: ReactNode
+}
+
+interface MenuItem {
+  title: string
+  list: Menu[]
+}
+
+const menuItems: MenuItem[] = [
   {
     title: 'Pages',
     list: [

@@ -24,60 +24,60 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
-    title: 'Pages',
+    title: 'pages',
     list: [
       {
-        title: 'Dashboard',
+        title: 'dashboard',
         path: '/dashboard',
         icon: <MdDashboard />,
       },
       {
-        title: 'Users',
+        title: 'users',
         path: '/dashboard/users',
         icon: <MdSupervisedUserCircle />,
       },
       {
-        title: 'Products',
+        title: 'products',
         path: '/dashboard/products',
         icon: <MdShoppingBag />,
       },
       {
-        title: 'Transactions',
+        title: 'transactions',
         path: '/dashboard/transactions',
         icon: <MdAttachMoney />,
       },
     ],
   },
   {
-    title: 'Analytics',
+    title: 'analytics',
     list: [
       {
-        title: 'Revenue',
+        title: 'revenue',
         path: '/dashboard/revenue',
         icon: <MdWork />,
       },
       {
-        title: 'Reports',
+        title: 'reports',
         path: '/dashboard/reports',
         icon: <MdAnalytics />,
       },
       {
-        title: 'Teams',
+        title: 'teams',
         path: '/dashboard/teams',
         icon: <MdPeople />,
       },
     ],
   },
   {
-    title: 'User',
+    title: 'user',
     list: [
       {
-        title: 'Settings',
+        title: 'settings',
         path: '/dashboard/settings',
         icon: <MdOutlineSettings />,
       },
       {
-        title: 'Help',
+        title: 'help',
         path: '/dashboard/help',
         icon: <MdHelpCenter />,
       },

@@ -7,6 +7,9 @@ import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
 
 function UsersPage() {
+  // TODO: remove when fetching data logic is built
+  const count = 0
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -47,7 +50,7 @@ function UsersPage() {
           </tr>
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   )
 }

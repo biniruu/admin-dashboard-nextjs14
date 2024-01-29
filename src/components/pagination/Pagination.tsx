@@ -2,7 +2,12 @@
 
 import styles from './pagination.module.css'
 
-function Pagination() {
+interface Props {
+  count: number
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function Pagination({ count }: Props) {
   // TODO: build logics
   const hasPrev = ''
   const hasNext = ''

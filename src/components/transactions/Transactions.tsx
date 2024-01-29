@@ -18,7 +18,7 @@ function Transactions() {
         <tbody>
           <tr>
             <td>
-              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage} />
+              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
               john doe
             </td>
             <td>
@@ -29,7 +29,7 @@ function Transactions() {
           </tr>
           <tr>
             <td>
-              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage} />
+              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
               john doe
             </td>
             <td>
@@ -40,7 +40,7 @@ function Transactions() {
           </tr>
           <tr>
             <td>
-              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles.userImage} />
+              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
               john doe
             </td>
             <td>

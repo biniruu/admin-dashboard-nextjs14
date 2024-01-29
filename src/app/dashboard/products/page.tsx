@@ -5,7 +5,7 @@ import styles from './products.module.css'
 
 import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
-import { type Product } from 'types/product'
+import { type Product } from 'types'
 
 function ProductsPage() {
   // TODO: set fetching method

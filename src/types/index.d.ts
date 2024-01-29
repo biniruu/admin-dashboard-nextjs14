@@ -4,7 +4,7 @@ export interface CardData {
   icon: ReactNode
   title: string
   number: number
-  state: string
+  state: 'positive' | 'negative'
   rate: number
   detail: string
 }

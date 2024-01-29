@@ -6,9 +6,9 @@ const tableHead: string[] = ['name', 'status', 'date', 'amount']
 
 function Transactions() {
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>transactions</h2>
-      <table className={styles.table}>
+    <div className="rounded-default bg-bg-soft p-5">
+      <h2 className="mb-5 font-extralight text-text-soft">transactions</h2>
+      <table className={`w-full ${styles.table}`}>
         <thead>
           <tr>
             {tableHead.map(item => (
@@ -23,7 +23,7 @@ function Transactions() {
               john doe
             </td>
             <td>
-              <span className={`${styles.status} ${styles.pending}`}>pending</span>
+              <span className={`${styles.status} bg-[#f7cb7375]`}>pending</span>
             </td>
             <td>14.02.2024</td>
             <td>$3.200</td>
@@ -34,7 +34,7 @@ function Transactions() {
               john doe
             </td>
             <td>
-              <span className={`${styles.status} ${styles.done}`}>done</span>
+              <span className={`${styles.status} bg-[#afd6ee75]`}>done</span>
             </td>
             <td>14.02.2024</td>
             <td>$3.200</td>
@@ -45,7 +45,7 @@ function Transactions() {
               john doe
             </td>
             <td>
-              <span className={`${styles.status} ${styles.cancelled}`}>cancelled</span>
+              <span className={`${styles.status} bg-[#f7737375]`}>cancelled</span>
             </td>
             <td>14.02.2024</td>
             <td>$3.200</td>

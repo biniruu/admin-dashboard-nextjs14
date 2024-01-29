@@ -7,18 +7,12 @@ import menuItems from 'data/menuItems'
 
 function Sidebar() {
   return (
-    <div className={['sticky', 'top-10'].join(' ')}>
-      <div className={['items-center', 'flex', 'gap-5', 'mb-5'].join(' ')}>
-        <Image
-          src="/noavatar.png"
-          width={50}
-          height={50}
-          className={['object-cover', 'rounded-half'].join(' ')}
-          alt=""
-        />
-        <div className={['flex', 'flex-col'].join(' ')}>
-          <span className={['font-medium'].join(' ')}>john joe</span>
-          <span className={['text-text-soft', 'text-xs'].join(' ')}>administrator</span>
+    <div className="sticky top-10">
+      <div className="mb-5 flex items-center gap-5">
+        <Image src="/noavatar.png" width={50} height={50} className="rounded-half object-cover" alt="" />
+        <div className="flex flex-col">
+          <span className="font-medium">john joe</span>
+          <span className="text-xs text-text-soft">administrator</span>
         </div>
       </div>
       <ul>
@@ -27,9 +21,7 @@ function Sidebar() {
 
           return (
             <li key={title}>
-              <span className={['text-text-soft', 'text-[0.8125rem]', 'font-bold', 'my-[0.625rem]'].join(' ')}>
-                {title}
-              </span>
+              <span className="my-[0.625rem] text-[0.8125rem] font-bold text-text-soft">{title}</span>
 
               {list.map(item => (
                 <MenuLink item={item} key={item.title} />
@@ -38,25 +30,11 @@ function Sidebar() {
           )
         })}
       </ul>
-      <button
-        className={[
-          'items-center',
-          'bg-none',
-          'border-none',
-          'rounded-default',
-          'cursor-pointer',
-          'flex',
-          'gap-default',
-          'my-[0.3125rem]',
-          'p-5',
-          'w-full',
-          'hover:bg-[#2e374a]',
-          'capitalize',
-        ].join(' ')}
-      >
+      <button className="my-[0.3125rem] flex w-full cursor-pointer items-center gap-default rounded-default border-none bg-none p-5 capitalize hover:bg-[#2e374a]">
         <MdLogout />
         logout
       </button>
+      <div className="flex w-full items-center"></div>
     </div>
   )
 }

@@ -1,15 +1,4 @@
-.container {
-  background: var(--bg-soft);
-  border-radius: 0.625rem;
-  margin-top: 1.25rem;
-  padding: 1.25rem;
-}
-
 .form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
   input,
   textarea,
   select {

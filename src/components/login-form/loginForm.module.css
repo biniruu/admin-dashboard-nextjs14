@@ -1,31 +1,8 @@
-.form {
-  align-items: center;
-  background-color: var(--bg-soft);
-  border-radius: 0.625rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.875rem;
-  height: 31.25rem;
-  justify-content: center;
-  padding: 3.125rem;
-  width: 31.25rem;
-
-  input {
-    background-color: var(--bg);
-    border: 0.125rem solid #2e374a;
-    border-radius: 0.3125rem;
-    color: var(--text);
-    padding: 1.875rem;
-    width: 100%;
-  }
-
-  button {
-    background-color: teal;
-    border: none;
-    border-radius: 0.3125rem;
-    color: var(--text);
-    cursor: pointer;
-    padding: 1.875rem;
-    width: 100%;
-  }
+.input {
+  background-color: var(--bg);
+  border: 0.125rem solid #2e374a;
+  border-radius: 0.3125rem;
+  color: var(--text);
+  padding: 1.875rem;
+  width: 100%;
 }

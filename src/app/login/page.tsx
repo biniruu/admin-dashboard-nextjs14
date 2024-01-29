@@ -1,10 +1,8 @@
-import styles from './login.module.css'
-
 import LoginForm from 'components/login-form/LoginForm'
 
 function LoginPage() {
   return (
-    <div className={styles.container}>
+    <div className="flex h-screen w-full items-center justify-center">
       <LoginForm />
     </div>
   )

@@ -13,14 +13,16 @@ function UsersPage() {
   const count = 0
 
   return (
-    <div className={styles.container}>
-      <div className={styles.top}>
+    <div className="mt-5 rounded-default bg-bg-soft p-5">
+      <div className="flex items-center justify-between">
         <Searchbar placeholder="Search for a user..." />
         <Link href="/dashboard/users/add">
-          <button className={styles['add-button']}>add new</button>
+          <button className="cursor-pointer rounded-[0.3125rem] border-none bg-[#5d57c9] p-default text-text">
+            add new
+          </button>
         </Link>
       </div>
-      <table className={styles.table}>
+      <table className={`w-full ${styles.table}`}>
         <thead>
           <tr>
             {tableHead.map(item => (
@@ -31,8 +33,8 @@ function UsersPage() {
         <tbody>
           <tr>
             <td>
-              <div className={styles.user}>
-                <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
+              <div className="flex items-center gap-default">
+                <Image src="/noavatar.png" alt="" width={40} height={40} className="rounded-half object-cover" />
                 john doe
               </div>
             </td>
@@ -40,11 +42,11 @@ function UsersPage() {
             <td>13.01.2022</td>
             <td>admin</td>
             <td>active</td>
-            <td>
+            <td className="flex gap-default">
               <Link href="/">
-                <button className={`${styles.button} ${styles.view}`}>view</button>
+                <button className={`${styles.button} bg-[teal]`}>view</button>
               </Link>
-              <button className={`${styles.button} ${styles.delete}`}>delete</button>
+              <button className={`${styles.button} bg-[crimson]`}>delete</button>
             </td>
           </tr>
         </tbody>

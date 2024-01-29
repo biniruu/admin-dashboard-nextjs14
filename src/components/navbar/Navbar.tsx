@@ -3,20 +3,24 @@
 import { usePathname } from 'next/navigation'
 import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/md'
 
-import styles from './navbar.module.css'
-
 function Navbar() {
   const pathname = usePathname()
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>{pathname.split('/').pop()}</div>
-      <div className={styles.menu}>
-        <div className={styles.search}>
+    <div className="flex items-center justify-between rounded-default bg-bg-soft p-5">
+      <div className="font-bold text-text-soft">{pathname.split('/').pop()}</div>
+      <div className="flex items-center gap-5">
+        <div className="items-center rounded-default bg-[#2e374a] p-[0.625rem]">
           <MdSearch />
-          <input type="text" name="search" id="search" placeholder="Search..." className={styles.input} />
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search..."
+            className="border-none bg-transparent text-text"
+          />
         </div>
-        <div className={styles.icons}>
+        <div className="flex gap-5">
           <MdOutlineChat size={20} />
           <MdNotifications size={20} />
           <MdPublic size={20} />

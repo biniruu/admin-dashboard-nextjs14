@@ -72,15 +72,15 @@ function SingleUserPage({ params }: Props) {
   const updateUser = () => {}
 
   return (
-    <div className={styles.container}>
-      <div className={styles['info-container']}>
-        <div className={styles['img-container']}>
+    <div className="mt-5 flex gap-[3.125rem]">
+      <div className="h-max flex-[1] rounded-default bg-bg-soft p-5 font-bold text-text-soft">
+        <div className="relative mb-5 h-[18.75rem] w-full overflow-hidden rounded-default">
           <Image src={user.img || '/noavatar.png'} alt="" fill />
         </div>
         {user.username}
       </div>
-      <div className={styles['form-container']}>
-        <form action={updateUser} className={styles.form}>
+      <div className="flex-[3] rounded-default bg-bg-soft p-5">
+        <form action={updateUser} className={`${styles.form} flex flex-col`}>
           <input type="hidden" name="id" value={user.id} />
 
           {inputFormData.map(item => {
@@ -116,8 +116,9 @@ function SingleUserPage({ params }: Props) {
               </div>
             )
           })}
-
-          <button>update</button>
+          <button className="mt-5 w-full cursor-pointer rounded-[0.3125rem] border-none bg-[teal] p-5 text-text">
+            update
+          </button>
         </form>
       </div>
     </div>

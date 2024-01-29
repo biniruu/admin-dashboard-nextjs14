@@ -18,7 +18,7 @@ function Pagination({ count }: Props) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className="flex justify-between p-[0.625rem]">
       <button className={styles.button} disabled={!hasPrev} onClick={() => handleChangePage('prev')}>
         previous
       </button>

@@ -1,18 +1,4 @@
-.container {
-  background: var(--bg-soft);
-  border-radius: 0.625rem;
-  padding: 1.25rem;
-}
-
-.title {
-  color: var(--text-soft);
-  font-weight: 200;
-  margin-bottom: 1.25rem;
-}
-
 .table {
-  width: 100%;
-
   & > td {
     padding: 0.625rem;
   }
@@ -34,16 +20,4 @@
   color: white;
   font-size: 0.875rem;
   padding: 0.3125rem;
-}
-
-.pending {
-  background: #f7cb7375;
-}
-
-.done {
-  background: #afd6ee75;
-}
-
-.cancelled {
-  background: #f7737375;
 }

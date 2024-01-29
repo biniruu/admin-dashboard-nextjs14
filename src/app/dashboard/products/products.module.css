@@ -1,45 +1,12 @@
-.container {
-  background: var(--bg-soft);
-  border-radius: 0.625rem;
-  margin-top: 1.25rem;
-  padding: 1.25rem;
-}
-
-.top {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.add-button {
-  background: #5d57c9;
-  border: none;
-  border-radius: 0.3125rem;
-  color: var(--text);
-  cursor: pointer;
-  padding: 0.625rem;
-}
-
 .table {
-  width: 100%;
+  td {
+    padding: 0.625rem;
+  }
 }
 
-.table td {
-  padding: 0.625rem;
-}
-
+/* There are no elements using this class. */
 .product {
   align-items: center;
-  display: flex;
-  gap: 0.625rem;
-}
-
-.product-image {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.buttons {
   display: flex;
   gap: 0.625rem;
 }
@@ -50,12 +17,4 @@
   color: var(--text);
   cursor: pointer;
   padding: 0.3125rem 0.625rem;
-}
-
-.view {
-  background: teal;
-}
-
-.delete {
-  background: crimson;
 }

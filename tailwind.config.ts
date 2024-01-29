@@ -8,14 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      zIndex: {},
-      fontSize: {},
-      colors: {
-        lime: 'lime',
-        red: 'red',
-        text: 'white',
-        'text-soft': '#b7bac1',
-      },
       backgroundColor: ({ theme }) => ({
         ...theme('colors'),
         bg: '#151c2c',
@@ -26,13 +18,25 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      borderColor: {
+        default: '#2e374a',
+      },
       borderRadius: {
         default: '0.625rem',
         half: '50%',
       },
+      colors: {
+        lime: 'lime',
+        red: 'red',
+        text: 'white',
+        'text-soft': '#b7bac1',
+      },
       gap: {
         default: '0.625rem',
       },
+      padding: {
+        default: '0.625rem'
+      }
     },
   },
   plugins: [],

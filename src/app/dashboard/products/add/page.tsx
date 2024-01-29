@@ -7,8 +7,8 @@ function AddProductPage() {
   const addProduct = () => {}
 
   return (
-    <div className={styles.container}>
-      <form action={addProduct} className={styles.form}>
+    <div className="mt-5 rounded-default bg-bg-soft p-5">
+      <form action={addProduct} className={`${styles.form} flex flex-wrap justify-between`}>
         <input type="text" placeholder="title" name="title" required />
         <select name="cat" id="cat">
           <option value="general">choose a category</option>

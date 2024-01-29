@@ -20,14 +20,16 @@ function ProductsPage() {
   const tableHead: string[] = ['title', 'description', 'price', 'created at', 'stock', 'action']
 
   return (
-    <div className={styles.container}>
-      <div className={styles.top}>
+    <div className="mt-5 rounded-default bg-bg-soft p-5">
+      <div className="flex items-center justify-between">
         <Searchbar placeholder="Search for a product..." />
         <Link href="/dashboard/products/add">
-          <button className={styles.addButton}>Add New</button>
+          <button className="cursor-pointer rounded-[0.3125rem] border-none bg-[#5d57c9] p-default text-text">
+            Add New
+          </button>
         </Link>
       </div>
-      <table className={styles.table}>
+      <table className={`${styles.table} w-full`}>
         <thead>
           <tr>
             {tableHead.map(item => (
@@ -42,13 +44,13 @@ function ProductsPage() {
             return (
               <tr key={id}>
                 <td>
-                  <div className={styles.product}>
+                  <div className="flex items-center gap-default">
                     <Image
                       src={img || '/noproduct.jpg'}
                       alt=""
                       width={40}
                       height={40}
-                      className={styles.productImage}
+                      className="rounded-half object-cover"
                     />
                     {title}
                   </div>
@@ -58,13 +60,13 @@ function ProductsPage() {
                 <td>{createdAt?.toString().slice(4, 16)}</td>
                 <td>{stock}</td>
                 <td>
-                  <div className={styles.buttons}>
+                  <div className="flex gap-default">
                     <Link href={`/dashboard/products/${id}`}>
-                      <button className={`${styles.button} ${styles.view}`}>View</button>
+                      <button className={`${styles.button} bg-[teal]`}>View</button>
                     </Link>
                     <form action={deleteProduct}>
                       <input type="hidden" name="id" value={id} />
-                      <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                      <button className={`${styles.button} bg-[crimson]`}>Delete</button>
                     </form>
                   </div>
                 </td>

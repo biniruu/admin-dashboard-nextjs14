@@ -7,8 +7,8 @@ function AddUserPage() {
   const addUser = () => {}
 
   return (
-    <div className={styles.container}>
-      <form action={addUser} className={styles.form}>
+    <div className="mt-5 rounded-default bg-bg-soft p-5">
+      <form action={addUser} className={`${styles.form} flex flex-wrap justify-between`}>
         <input type="text" placeholder="username" name="username" required />
         <input type="email" placeholder="email" name="email" required />
         <input type="password" placeholder="password" name="password" required />

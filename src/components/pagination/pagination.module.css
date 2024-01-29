@@ -1,14 +1,8 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.625rem;
-}
-
 .button {
   cursor: pointer;
   padding: 0.3125rem 0.625rem;
-}
 
-.button:disabled {
-  cursor: not-allowed;
+  &:disabled {
+    cursor: not-allowed;
+  }
 }

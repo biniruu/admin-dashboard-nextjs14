@@ -1,8 +1,9 @@
-import Card from './card/Card'
-import Chart from './chart/Chart'
+import Card from '../../components/card/Card'
+import Chart from '../../components/chart/Chart'
+import Transactions from '../../components/transactions/Transactions'
+
 import styles from './dashboard.module.css'
 import Rightbar from './rightbar/Rightbar'
-import Transactions from './transactions/Transactions'
 
 function Dashboard() {
   return (

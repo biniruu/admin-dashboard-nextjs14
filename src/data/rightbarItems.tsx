@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { MdPlayCircleFilled, MdReadMore } from 'react-icons/md'
 
 interface RightbarItem {

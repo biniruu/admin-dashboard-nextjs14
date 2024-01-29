@@ -1,4 +1,10 @@
-const data = [
+interface DashedLineChartData {
+  name: string
+  visit: number
+  click: number
+}
+
+const DashedLineChartData: DashedLineChartData[] = [
   {
     name: 'Sun',
     visit: 4000,
@@ -36,4 +42,4 @@ const data = [
   },
 ]
 
-export default data
+export default DashedLineChartData

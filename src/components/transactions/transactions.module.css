@@ -1,27 +1,27 @@
 .container {
   background: var(--bg-soft);
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 0.625rem;
+  padding: 1.25rem;
 }
 
 .title {
   color: var(--text-soft);
   font-weight: 200;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .table {
   width: 100%;
 
   & > td {
-    padding: 10px;
+    padding: 0.625rem;
   }
 }
 
 .user {
   align-items: center;
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 
   &-image {
     border-radius: 50%;
@@ -30,10 +30,10 @@
 }
 
 .status {
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   color: white;
-  font-size: 14px;
-  padding: 5px;
+  font-size: 0.875rem;
+  padding: 0.3125rem;
 }
 
 .pending {

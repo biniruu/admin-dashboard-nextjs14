@@ -2,10 +2,10 @@ import { MdSupervisedUserCircle } from 'react-icons/md'
 
 import Card from '../../components/card/Card'
 import Chart from '../../components/chart/Chart'
+import Rightbar from '../../components/rightbar/Rightbar'
 import Transactions from '../../components/transactions/Transactions'
 
 import styles from './dashboard.module.css'
-import Rightbar from './rightbar/Rightbar'
 
 import { type CardData } from 'types'
 

@@ -2,14 +2,12 @@
 
 import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
 
-import styles from './chart.module.css'
-
 import data from 'data/charts/dashedLineChartData'
 
 function Chart() {
   return (
-    <div className={styles.container}>
-      <h2>weekly recap</h2>
+    <div className={['bg-bg-soft', 'rounded', 'h-[28.125rem]', 'p-5'].join(' ')}>
+      <h2 className={['text-text-soft', 'font-extralight', 'mb-5'].join(' ')}>weekly recap</h2>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart width={500} height={300} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <XAxis dataKey="name" />

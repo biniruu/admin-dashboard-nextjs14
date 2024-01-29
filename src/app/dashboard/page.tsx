@@ -1,3 +1,5 @@
+import { MdSupervisedUserCircle } from 'react-icons/md'
+
 import Card from '../../components/card/Card'
 import Chart from '../../components/chart/Chart'
 import Transactions from '../../components/transactions/Transactions'
@@ -5,14 +7,48 @@ import Transactions from '../../components/transactions/Transactions'
 import styles from './dashboard.module.css'
 import Rightbar from './rightbar/Rightbar'
 
+import { type CardData } from 'types'
+
 function Dashboard() {
+  const cardData: CardData[] = [
+    {
+      icon: <MdSupervisedUserCircle size={24} />,
+      title: 'total users',
+      number: 10.273,
+      state: 'positive',
+      rate: 12,
+      detail: 'more than',
+    },
+    {
+      icon: <MdSupervisedUserCircle size={24} />,
+      title: 'total users',
+      number: 10.273,
+      state: 'positive',
+      rate: 12,
+      detail: 'more than',
+    },
+    {
+      icon: <MdSupervisedUserCircle size={24} />,
+      title: 'total users',
+      number: 10.273,
+      state: 'positive',
+      rate: 12,
+      detail: 'more than',
+    },
+  ]
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.cards}>
-          <Card />
-          <Card />
-          <Card />
+          {/* TODO: remove idx from map */}
+          {cardData.map((item, idx) => {
+            const { icon, title, number, state, rate, detail } = item
+
+            return (
+              <Card key={idx} icon={icon} title={title} number={number} state={state} rate={rate} detail={detail} />
+            )
+          })}
         </div>
         <Transactions />
         <Chart />

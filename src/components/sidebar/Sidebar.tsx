@@ -18,14 +18,19 @@ function Sidebar() {
         </div>
       </div>
       <ul>
-        {menuItems.map(cat => (
-          <li key={cat.title}>
-            <span className={styles.cat}>{cat.title}</span>
-            {cat.list.map(item => (
-              <MenuLink item={item} key={item.title} />
-            ))}
-          </li>
-        ))}
+        {menuItems.map(cat => {
+          const { title, list } = cat
+
+          return (
+            <li key={title}>
+              <span className={styles.cat}>{title}</span>
+
+              {list.map(item => (
+                <MenuLink item={item} key={item.title} />
+              ))}
+            </li>
+          )
+        })}
       </ul>
       <button className={styles.logout}>
         <MdLogout />

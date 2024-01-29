@@ -5,11 +5,11 @@ import styles from './products.module.css'
 
 import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
-import { type Products } from 'types/products'
+import { type Product } from 'types/product'
 
 function ProductsPage() {
   // TODO: set fetching method
-  const products: Products[] = []
+  const products: Product[] = []
 
   // TODO: remove when fetching data logic is built
   const count = 0

@@ -6,7 +6,7 @@ import styles from './users.module.css'
 import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
 
-const tableHead = ['name', 'email', 'created at', 'role', 'status', 'action']
+const tableHead: string[] = ['name', 'email', 'created at', 'role', 'status', 'action']
 
 function UsersPage() {
   // TODO: remove when fetching data logic is built

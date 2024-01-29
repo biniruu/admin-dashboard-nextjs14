@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import styles from './transactions.module.css'
 
-const tableHead = ['name', 'status', 'date', 'amount']
+const tableHead: string[] = ['name', 'status', 'date', 'amount']
 
 function Transactions() {
   return (

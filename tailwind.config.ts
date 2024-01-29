@@ -27,7 +27,11 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       borderRadius: {
-        DEFAULT: '0.625rem',
+        default: '0.625rem',
+        half: '50%',
+      },
+      gap: {
+        default: '0.625rem',
       },
     },
   },

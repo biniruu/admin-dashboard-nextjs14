@@ -7,14 +7,16 @@ import { ReactNode } from 'react'
 import styles from './menuLink.module.css'
 
 interface Item {
-  item: {
-    title: string
-    path: string
-    icon: ReactNode
-  }
+  title: string
+  path: string
+  icon: ReactNode
 }
 
-function MenuLink({ item }: Item) {
+interface Props {
+  item: Item
+}
+
+function MenuLink({ item }: Props) {
   const pathname = usePathname()
 
   return (

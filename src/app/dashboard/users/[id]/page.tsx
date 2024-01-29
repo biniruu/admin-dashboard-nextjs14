@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 import styles from './singleUser.module.css'
@@ -28,6 +30,44 @@ function SingleUserPage({ params }: Props) {
     isActive: false,
   }
 
+  // TODO: convert into useState
+  const inputFormData = [
+    {
+      type: 'text',
+      label: 'username',
+      placeholder: user.username,
+    },
+    {
+      type: 'email',
+      label: 'email',
+      placeholder: user.username,
+    },
+    {
+      type: 'password',
+      label: 'password',
+      placeholder: '',
+    },
+    {
+      type: 'text',
+      label: 'phone',
+      placeholder: user.phone,
+    },
+  ]
+
+  // TODO: convert into useState
+  const selectFormData = [
+    {
+      label: 'is admin?',
+      name: 'is-admin',
+      selected: user.isAdmin,
+    },
+    {
+      label: 'is active?',
+      name: 'is-active',
+      selected: user.isActive,
+    },
+  ]
+
   // TODO: build logic
   const updateUser = () => {}
 
@@ -42,34 +82,41 @@ function SingleUserPage({ params }: Props) {
       <div className={styles.formContainer}>
         <form action={updateUser} className={styles.form}>
           <input type="hidden" name="id" value={user.id} />
-          <label htmlFor="text">Username</label>
-          <input type="text" name="username" id="text" placeholder={user.username} />
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" placeholder={user.email} />
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
-          <label htmlFor="text">Phone</label>
-          <input type="text" name="phone" id="text" placeholder={user.phone} />
-          <label htmlFor="address">Address</label>
-          <textarea name="address" id="address" placeholder={user.address} />
-          <label htmlFor="is-admin">Is Admin?</label>
-          <select name="is-admin" id="is-admin">
-            <option value="true" selected={user.isAdmin}>
-              Yes
-            </option>
-            <option value="false" selected={!user.isAdmin}>
-              No
-            </option>
-          </select>
-          <label htmlFor="is-active">Is Active?</label>
-          <select name="is-active" id="is-active">
-            <option value="true" selected={user.isActive}>
-              yes
-            </option>
-            <option value="false" selected={!user.isActive}>
-              no
-            </option>
-          </select>
+
+          {inputFormData.map(item => {
+            const { type, label, placeholder } = item
+
+            return (
+              <div key={label}>
+                <label htmlFor={label}>{label}</label>
+                <input type={type} name={label} id={label} placeholder={placeholder} />
+              </div>
+            )
+          })}
+
+          <div>
+            <label htmlFor="address">address</label>
+            <textarea name="address" id="address" placeholder={user.address} />
+          </div>
+
+          {selectFormData.map(item => {
+            const { label, name, selected } = item
+
+            return (
+              <div key={name}>
+                <label htmlFor={name}>{label}</label>
+                <select name={name} id={name}>
+                  <option value="true" selected={selected}>
+                    yes
+                  </option>
+                  <option value="false" selected={!selected}>
+                    no
+                  </option>
+                </select>
+              </div>
+            )
+          })}
+
           <button>update</button>
         </form>
       </div>

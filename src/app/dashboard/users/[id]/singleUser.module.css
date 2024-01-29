@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  gap: 3.125rem;
+  margin-top: 1.25rem;
+}
+
+.info-container {
+  background: var(--bg-soft);
+  border-radius: 0.625rem;
+  color: var(--text-soft);
+  flex: 1;
+  font-weight: bold;
+  height: max-content;
+  padding: 1.25rem;
+}
+
+.img-container {
+  border-radius: 0.625rem;
+  height: 18.75rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.form-container {
+  background: var(--bg-soft);
+  border-radius: 0.625rem;
+  flex: 3;
+  padding: 1.25rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  input,
+  textarea,
+  select {
+    background: var(--bg);
+    border: 0.125rem solid #2e374a;
+    border-radius: 0.3125rem;
+    color: var(--text);
+    margin: 0.625rem 0;
+    padding: 1.25rem;
+  }
+
+  label {
+    font-size: 0.75rem;
+  }
+
+  button {
+    background: teal;
+    border: none;
+    border-radius: 0.3125rem;
+    color: var(--text);
+    cursor: pointer;
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    width: 100%;
+  }
+}

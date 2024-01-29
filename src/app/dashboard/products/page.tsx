@@ -17,6 +17,8 @@ function ProductsPage() {
   // TODO: convert into importing data from database
   const deleteProduct = () => {}
 
+  const tableHead: string[] = ['title', 'description', 'price', 'created at', 'stock', 'action']
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -28,46 +30,47 @@ function ProductsPage() {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>title</td>
-            <td>description</td>
-            <td>price</td>
-            <td>created at</td>
-            <td>stock</td>
-            <td>action</td>
+            {tableHead.map(item => (
+              <td key={item}>{item}</td>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {products.map(product => (
-            <tr key={product.id}>
-              <td>
-                <div className={styles.product}>
-                  <Image
-                    src={product.img || '/noproduct.jpg'}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className={styles.productImage}
-                  />
-                  {product.title}
-                </div>
-              </td>
-              <td>{product.desc}</td>
-              <td>${product.price}</td>
-              <td>{product.createdAt?.toString().slice(4, 16)}</td>
-              <td>{product.stock}</td>
-              <td>
-                <div className={styles.buttons}>
-                  <Link href={`/dashboard/products/${product.id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>View</button>
-                  </Link>
-                  <form action={deleteProduct}>
-                    <input type="hidden" name="id" value={product.id} />
-                    <button className={`${styles.button} ${styles.delete}`}>Delete</button>
-                  </form>
-                </div>
-              </td>
-            </tr>
-          ))}
+          {products.map(product => {
+            const { id, img, title, desc, price, createdAt, stock } = product
+
+            return (
+              <tr key={id}>
+                <td>
+                  <div className={styles.product}>
+                    <Image
+                      src={img || '/noproduct.jpg'}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className={styles.productImage}
+                    />
+                    {title}
+                  </div>
+                </td>
+                <td>{desc}</td>
+                <td>${price}</td>
+                <td>{createdAt?.toString().slice(4, 16)}</td>
+                <td>{stock}</td>
+                <td>
+                  <div className={styles.buttons}>
+                    <Link href={`/dashboard/products/${id}`}>
+                      <button className={`${styles.button} ${styles.view}`}>View</button>
+                    </Link>
+                    <form action={deleteProduct}>
+                      <input type="hidden" name="id" value={id} />
+                      <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
       <Pagination count={count} />

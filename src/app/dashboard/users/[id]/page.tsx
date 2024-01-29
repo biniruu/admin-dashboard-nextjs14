@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import styles from './singleUser.module.css'
 
-import { type User } from 'types/user'
+import { type User } from 'types'
 
 interface Params {
   id: string

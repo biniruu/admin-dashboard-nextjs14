@@ -2,6 +2,8 @@ import Image from 'next/image'
 
 import styles from './transactions.module.css'
 
+const tableHead = ['name', 'status', 'date', 'amount']
+
 function Transactions() {
   return (
     <div className={styles.container}>
@@ -9,10 +11,9 @@ function Transactions() {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>name</td>
-            <td>status</td>
-            <td>date</td>
-            <td>amount</td>
+            {tableHead.map(item => (
+              <td key={item}>{item}</td>
+            ))}
           </tr>
         </thead>
         <tbody>

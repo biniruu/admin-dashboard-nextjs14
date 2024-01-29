@@ -1,6 +1,6 @@
 .container {
   align-items: center;
-  background-color: #2e374a;
+  background: #2e374a;
   border-radius: 0.625rem;
   display: flex;
   gap: 0.625rem;
@@ -9,7 +9,7 @@
 }
 
 .input {
-  background-color: transparent;
+  background: transparent;
   border: none;
   color: var(--text);
   outline: none;

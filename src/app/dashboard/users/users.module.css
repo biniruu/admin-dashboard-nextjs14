@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--bg-soft);
+  background: var(--bg-soft);
   border-radius: 0.625rem;
   margin-top: 1.25rem;
   padding: 1.25rem;
@@ -12,7 +12,7 @@
 }
 
 .add-button {
-  background-color: #5d57c9;
+  background: #5d57c9;
   border: none;
   border-radius: 0.3125rem;
   color: var(--text);
@@ -53,9 +53,9 @@
 }
 
 .view {
-  background-color: teal;
+  background: teal;
 }
 
 .delete {
-  background-color: crimson;
+  background: crimson;
 }

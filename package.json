@@ -17,6 +17,7 @@
     "recharts": "^2.10.4"
   },
   "devDependencies": {
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@types/jest": "^29.5.11",
     "@types/node": "^20",
     "@types/react": "^18",

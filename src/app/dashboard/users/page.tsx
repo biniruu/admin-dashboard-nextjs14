@@ -5,12 +5,15 @@ import styles from './users.module.css'
 
 import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
+import { fetchUsers } from 'utils/fetchData'
 
 const tableHead: string[] = ['name', 'email', 'created at', 'role', 'status', 'action']
 
-function UsersPage() {
+async function UsersPage() {
   // TODO: remove when fetching data logic is built
   const count = 0
+
+  const users = await fetchUsers()
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
@@ -31,24 +34,36 @@ function UsersPage() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className="flex items-center gap-default">
-                <Image src="/noavatar.png" alt="" width={40} height={40} className="rounded-half object-cover" />
-                john doe
-              </div>
-            </td>
-            <td>john@gmail.com</td>
-            <td>13.01.2022</td>
-            <td>admin</td>
-            <td>active</td>
-            <td className="flex gap-default">
-              <Link href="/">
-                <button className={`${styles.button} bg-[teal]`}>view</button>
-              </Link>
-              <button className={`${styles.button} bg-[crimson]`}>delete</button>
-            </td>
-          </tr>
+          {users?.map(user => {
+            const { id, img, username, email, isAdmin, isActive } = user
+
+            return (
+              <tr key={id}>
+                <td>
+                  <div className="flex items-center gap-default">
+                    <Image
+                      src={img || '/noavatar.png'}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="rounded-half object-cover"
+                    />
+                    {username}
+                  </div>
+                </td>
+                <td>{email}</td>
+                <td>13.01.2022</td>
+                <td>{isAdmin ? 'admin' : 'user'}</td>
+                <td>{isActive ? 'active' : 'inactive'}</td>
+                <td className="flex gap-default">
+                  <Link href="/">
+                    <button className={`${styles.button} bg-[teal]`}>view</button>
+                  </Link>
+                  <button className={`${styles.button} bg-[crimson]`}>delete</button>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
       <Pagination count={count} />

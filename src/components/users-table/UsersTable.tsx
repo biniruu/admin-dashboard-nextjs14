@@ -23,7 +23,7 @@ function UsersTable({ users }: Props) {
       </thead>
       <tbody>
         {users?.map(user => {
-          const { id, img, username, email, isAdmin, isActive } = user
+          const { id, img, username, email, isAdmin, isActive, createdAt } = user
 
           return (
             <tr key={id}>
@@ -40,9 +40,9 @@ function UsersTable({ users }: Props) {
                 </div>
               </td>
               <td>{email}</td>
-              <td>13.01.2022</td>
+              <td>{createdAt?.toString().slice(4, 16) || ''}</td>
               <td>{isAdmin ? 'admin' : 'user'}</td>
-              <td>{isActive ? 'active' : 'inactive'}</td>
+              <td>{isActive ? 'active' : 'passive'}</td>
               <td className="flex gap-default">
                 <Link href="/">
                   <button className={`${styles.button} bg-[teal]`}>view</button>

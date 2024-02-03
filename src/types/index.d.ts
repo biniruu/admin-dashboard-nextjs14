@@ -28,4 +28,5 @@ export interface User {
   address: string
   isAdmin: boolean
   isActive: boolean
+  createdAt: Date
 }

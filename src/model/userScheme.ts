@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    createdAt: {
+      type: Date,
+      required: true,
+    },
     phone: {
       type: String,
     },

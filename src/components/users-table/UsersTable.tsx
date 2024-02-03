@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -24,6 +25,7 @@ function UsersTable({ users }: Props) {
       <tbody>
         {users?.map(user => {
           const { id, img, username, email, isAdmin, isActive, createdAt } = user
+          const date = createdAt && dayjs(createdAt).format('YYYY/MM/DD')
 
           return (
             <tr key={id}>
@@ -40,7 +42,7 @@ function UsersTable({ users }: Props) {
                 </div>
               </td>
               <td>{email}</td>
-              <td>{createdAt?.toString().slice(4, 16) || ''}</td>
+              <td>{date || ''}</td>
               <td>{isAdmin ? 'admin' : 'user'}</td>
               <td>{isActive ? 'active' : 'passive'}</td>
               <td className="flex gap-default">

@@ -7,7 +7,12 @@ const nextConfig = {
   //   serverActions: true, // App Router에서 server actions 활성화
   // },
   images: {
-    domains: [], // 외부 이미지 uri
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+    ], // 외부 이미지 uri
   },
   reactStrictMode: true,
 }

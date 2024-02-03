@@ -1,5 +1,5 @@
 /**
- * Syntaxes
+ * Syntaxes (It's not supported by Next.js)
  * {@link https://github.com/postcss/postcss#syntaxes}
  *
  * Plugins
@@ -22,7 +22,6 @@
  */
 
 module.exports = {
-  syntax: 'postcss-syntax', //  automatically switch the required PostCSS syntax by file extension/source
   plugins: {
     '@tailwindcss/nesting': {}, // 항상 tailwindcss 앞에 위치
     'postcss-preset-env': {

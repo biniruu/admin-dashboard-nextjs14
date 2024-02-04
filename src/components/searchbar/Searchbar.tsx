@@ -1,19 +1,17 @@
 'use client'
 
 import { debounce } from 'lodash-es'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent } from 'react'
 import { MdSearch } from 'react-icons/md'
+
+import useNavFunc from 'hooks/useNavFunc'
 
 interface Props {
   placeholder: string
 }
 
 function Searchbar({ placeholder }: Props) {
-  const searchParams = useSearchParams()
-  // eslint-disable-next-line @typescript-eslint/unbound-method
-  const { replace } = useRouter()
-  const pathname = usePathname()
+  const { searchParams, replace, pathname } = useNavFunc()
 
   const handleSearch = debounce((e: ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams)

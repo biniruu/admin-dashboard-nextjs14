@@ -5,11 +5,17 @@ import Searchbar from 'components/searchbar/Searchbar'
 import UsersTable from 'components/users-table/UsersTable'
 import { fetchUsers } from 'utils/fetchData'
 
-async function UsersPage() {
+interface Props {
+  searchParams: { [key: string]: string | undefined }
+}
+
+async function UsersPage({ searchParams }: Props) {
   // TODO: remove when fetching data logic is built
   const count = 0
 
-  const users = await fetchUsers()
+  // get user data by search keywords
+  const searchKeywords = searchParams?.search || ''
+  const users = await fetchUsers(searchKeywords)
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
@@ -21,7 +27,11 @@ async function UsersPage() {
           </button>
         </Link>
       </div>
-      {(users && <UsersTable users={users} />) || <p>User Data not found.</p>}
+      {users?.length ? (
+        <UsersTable users={users} />
+      ) : (
+        <p className="mb-5 mt-14 flex justify-center lowercase ">user data not found.</p>
+      )}
       <Pagination count={count} />
     </div>
   )

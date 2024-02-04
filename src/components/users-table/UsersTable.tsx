@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import styles from './usersTable.module.css'
 
-import { User } from 'types'
+import { type User } from 'types'
 
 const tableHead: string[] = ['name', 'email', 'created at', 'role', 'status', 'action']
 

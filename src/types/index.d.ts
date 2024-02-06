@@ -29,4 +29,5 @@ export interface User {
   isAdmin: boolean
   isActive: boolean
   createdAt: Date
+  password: string
 }

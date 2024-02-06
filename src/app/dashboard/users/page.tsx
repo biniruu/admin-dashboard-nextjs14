@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
 import UsersTable from 'components/users-table/UsersTable'
+import { type User } from 'types'
 import { fetchUsers } from 'utils/fetchData'
 
 interface Props {
@@ -10,12 +11,12 @@ interface Props {
 }
 
 async function UsersPage({ searchParams }: Props) {
-  // TODO: remove when fetching data logic is built
-  const count = 0
-
   // get user data by search keywords
   const searchKeywords = searchParams?.search || ''
-  const users = await fetchUsers(searchKeywords)
+  const currentPage = searchParams?.page || '1'
+  const pageNumber = Number(currentPage)
+
+  const { users, totalUsers } = (await fetchUsers(searchKeywords, pageNumber)) as { users: User[]; totalUsers: number }
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
@@ -32,7 +33,7 @@ async function UsersPage({ searchParams }: Props) {
       ) : (
         <p className="mb-5 mt-14 flex justify-center lowercase ">user data not found.</p>
       )}
-      <Pagination count={count} />
+      <Pagination totalUsers={totalUsers} />
     </div>
   )
 }

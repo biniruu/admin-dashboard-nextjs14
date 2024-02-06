@@ -1,8 +1,13 @@
 .button {
+  background: white;
+  color: #4c4c4c;
   cursor: pointer;
   padding: 0.3125rem 0.625rem;
 
   &:disabled {
+    background: grey;
+    color: #1d1d1d;
     cursor: not-allowed;
+    opacity: 0.4;
   }
 }

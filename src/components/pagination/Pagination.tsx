@@ -2,27 +2,46 @@
 
 import styles from './pagination.module.css'
 
+import useNavFunc from 'hooks/useNavFunc'
+
 interface Props {
-  count: number
+  totalUsers: number
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function Pagination({ count }: Props) {
-  // TODO: build logics
-  const hasPrev = ''
-  const hasNext = ''
+function Pagination({ totalUsers }: Props) {
+  const { searchParams, replace, pathname } = useNavFunc()
+
+  const currentPage = searchParams?.get('page')
+  const pageNumber = Number(currentPage) || 1
+  const params = new URLSearchParams(searchParams)
+  const ITEM_PER_PAGE = 2
+
+  const hasPrev = ITEM_PER_PAGE * (pageNumber - 1) > 0
+  const hasNext = ITEM_PER_PAGE * (pageNumber - 1) + ITEM_PER_PAGE < totalUsers
 
   const handleChangePage = (type: 'prev' | 'next') => {
-    // eslint-disable-next-line no-console
-    console.log(type)
+    const page = type === 'prev' ? pageNumber - 1 : pageNumber + 1
+    params.set('page', page.toString())
+    replace(`${pathname}?${params.toString()}`)
   }
 
   return (
     <div className="flex justify-between p-[0.625rem]">
-      <button className={styles.button} disabled={!hasPrev} onClick={() => handleChangePage('prev')}>
+      <button
+        className={styles.button}
+        disabled={!hasPrev}
+        aria-disabled={!hasPrev}
+        onClick={() => handleChangePage('prev')}
+      >
         previous
       </button>
-      <button className={styles.button} disabled={!hasNext} onClick={() => handleChangePage('next')}>
+      <button
+        className={styles.button}
+        disabled={!hasNext}
+        aria-disabled={!hasPrev}
+        onClick={() => handleChangePage('next')}
+      >
         next
       </button>
     </div>

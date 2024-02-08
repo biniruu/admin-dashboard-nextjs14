@@ -1,20 +1,6 @@
-.table {
-  td {
-    padding: 0.625rem;
-  }
-}
-
-/* There are no elements using this class. */
+/* FIXME: There are no elements using this class. */
 .product {
   align-items: center;
   display: flex;
   gap: 0.625rem;
-}
-
-.button {
-  border: none;
-  border-radius: 0.3125rem;
-  color: var(--text);
-  cursor: pointer;
-  padding: 0.3125rem 0.625rem;
 }

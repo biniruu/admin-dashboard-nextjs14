@@ -1,0 +1,13 @@
+.table {
+  td {
+    padding: 0.625rem;
+  }
+}
+
+.button {
+  border: none;
+  border-radius: 0.3125rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.3125rem 0.625rem;
+}

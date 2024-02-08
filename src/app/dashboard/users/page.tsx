@@ -10,13 +10,18 @@ interface Props {
   searchParams: { [key: string]: string | undefined }
 }
 
+interface FetchUsers {
+  users: User[]
+  totalUsers: number
+}
+
 async function UsersPage({ searchParams }: Props) {
   // get user data by search keywords
   const searchKeywords = searchParams?.search || ''
   const currentPage = searchParams?.page || '1'
   const pageNumber = Number(currentPage)
 
-  const { users, totalUsers } = (await fetchUsers(searchKeywords, pageNumber)) as { users: User[]; totalUsers: number }
+  const { users, totalUsers } = (await fetchUsers(searchKeywords, pageNumber)) as FetchUsers
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">

@@ -33,7 +33,7 @@ async function UsersPage({ searchParams }: Props) {
       ) : (
         <p className="mb-5 mt-14 flex justify-center lowercase ">user data not found.</p>
       )}
-      <Pagination totalUsers={totalUsers} />
+      <Pagination total={totalUsers} />
     </div>
   )
 }

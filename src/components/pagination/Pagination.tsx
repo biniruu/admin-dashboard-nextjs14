@@ -5,11 +5,11 @@ import styles from './pagination.module.css'
 import useNavFunc from 'hooks/useNavFunc'
 
 interface Props {
-  totalUsers: number
+  total: number
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function Pagination({ totalUsers }: Props) {
+function Pagination({ total }: Props) {
   const { searchParams, replace, pathname } = useNavFunc()
 
   const currentPage = searchParams?.get('page')
@@ -18,7 +18,7 @@ function Pagination({ totalUsers }: Props) {
   const ITEM_PER_PAGE = 2
 
   const hasPrev = ITEM_PER_PAGE * (pageNumber - 1) > 0
-  const hasNext = ITEM_PER_PAGE * (pageNumber - 1) + ITEM_PER_PAGE < totalUsers
+  const hasNext = ITEM_PER_PAGE * (pageNumber - 1) + ITEM_PER_PAGE < total
 
   const handleChangePage = (type: 'prev' | 'next') => {
     const page = type === 'prev' ? pageNumber - 1 : pageNumber + 1

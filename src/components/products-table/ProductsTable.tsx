@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -9,10 +11,14 @@ const tableHead: string[] = ['title', 'description', 'price', 'created at', 'sto
 
 interface Props {
   products: Product[]
-  deleteProduct: () => void
+  // deleteProduct: () => void
 }
 
-function ProductsTable({ products, deleteProduct }: Props) {
+// function ProductsTable({ products, deleteProduct }: Props) {
+function ProductsTable({ products }: Props) {
+  // TODO: convert into importing data from database
+  const deleteProduct = () => {}
+
   return (
     <table className={`${styles.table} w-full`}>
       <thead>
@@ -23,7 +29,7 @@ function ProductsTable({ products, deleteProduct }: Props) {
         </tr>
       </thead>
       <tbody>
-        {products.map(product => {
+        {products?.map(product => {
           const { id, img, title, desc, price, createdAt, stock } = product
 
           return (

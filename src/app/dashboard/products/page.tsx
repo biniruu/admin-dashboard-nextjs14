@@ -4,16 +4,27 @@ import Pagination from 'components/pagination/Pagination'
 import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
 import { type Product } from 'types'
+import { fetchProducts } from 'utils/fetchData'
 
-function ProductsPage() {
-  // TODO: set fetching method
-  const products: Product[] = []
+interface Props {
+  searchParams: { [key: string]: string | undefined }
+}
 
-  // TODO: remove when fetching data logic is built
-  const count = 0
+interface FetchProducts {
+  products: Product[]
+  totalProducts: number
+}
+
+async function ProductsPage({ searchParams }: Props) {
+  // get user data by search keywords
+  const searchKeywords = searchParams?.search || ''
+  const currentPage = searchParams?.page || '1'
+  const pageNumber = Number(currentPage)
+
+  const { products, totalProducts } = (await fetchProducts(searchKeywords, pageNumber)) as FetchProducts
 
   // TODO: convert into importing data from database
-  const deleteProduct = () => {}
+  // const deleteProduct = () => {}
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
@@ -25,8 +36,9 @@ function ProductsPage() {
           </button>
         </Link>
       </div>
-      <ProductsTable products={products} deleteProduct={deleteProduct} />
-      <Pagination count={count} />
+      {/* <ProductsTable products={products} deleteProduct={deleteProduct} /> */}
+      <ProductsTable products={products} />
+      <Pagination total={totalProducts} />
     </div>
   )
 }

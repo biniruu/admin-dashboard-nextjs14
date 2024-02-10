@@ -20,14 +20,15 @@ export interface Product {
 }
 
 export interface User {
-  img: string
+  img?: string
   username: string
-  id: string
+  id?: string
   email: string
   phone: string
   address: string
   isAdmin: boolean
   isActive: boolean
-  createdAt: Date
+  createdAt?: Date
+  updatedAt?: Date
   password: string
 }

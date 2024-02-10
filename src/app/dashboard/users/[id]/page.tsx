@@ -19,7 +19,7 @@ function SingleUserPage({ params }: Props) {
   const { id } = params
 
   // TODO: convert into fetching method
-  const user: User = {
+  const user: Omit<User, 'password'> = {
     img: '',
     username: '',
     id: '',

@@ -1,6 +1,8 @@
 import { Schema, model, models } from 'mongoose'
 
-const userSchema = new Schema(
+import { type User as Users } from 'types'
+
+const userSchema = new Schema<Users>(
   {
     username: {
       type: String,
@@ -31,10 +33,13 @@ const userSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      required: true,
+    },
+    updatedAt: {
+      type: Date,
     },
     phone: {
       type: String,
+      unique: true,
     },
     address: {
       type: String,
@@ -43,4 +48,4 @@ const userSchema = new Schema(
   { timestamps: true },
 )
 
-export const User = models.User || model('User', userSchema)
+export const User = models.User || model<Users>('User', userSchema)

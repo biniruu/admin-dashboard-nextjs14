@@ -10,25 +10,28 @@ export interface CardData {
 }
 
 export interface Product {
-  id: string
-  img: string
+  id?: string
+  img?: string
+  size: string
+  color: string
   title: string
   desc: string
   price: string
-  createdAt: number
   stock: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface User {
+  id?: string
   img?: string
   username: string
-  id?: string
   email: string
   phone: string
   address: string
+  password: string
   isAdmin: boolean
   isActive: boolean
   createdAt?: Date
   updatedAt?: Date
-  password: string
 }

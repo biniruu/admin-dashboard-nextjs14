@@ -8,7 +8,7 @@ import { connectToDB } from './connectionsToDB'
 import getHashedPassword from './passwordSecurity'
 
 import { User } from 'model/userScheme'
-import { type User as Users } from 'types'
+import { type Product, type User as Users } from 'types'
 
 const addUser = async (formData: FormData) => {
   const { username, email, password, phone, address, isAdmin, isActive } = Object.fromEntries(
@@ -38,4 +38,27 @@ const addUser = async (formData: FormData) => {
   redirect('/dashboard/users')
 }
 
-export { addUser }
+const addProduct = async (formData: FormData) => {
+  const { title, desc, price, stock, color, size } = Object.fromEntries(formData) as unknown as Product
+
+  try {
+    await connectToDB()
+
+    await User.create<Product>({
+      title,
+      desc,
+      price,
+      stock,
+      color,
+      size,
+    })
+  } catch (error) {
+    const err = error as Error
+    console.error(err.message)
+  }
+
+  revalidatePath('/dashboard/products')
+  redirect('/dashboard/products')
+}
+
+export { addProduct, addUser }

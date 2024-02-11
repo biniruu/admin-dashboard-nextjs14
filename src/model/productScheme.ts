@@ -1,6 +1,8 @@
-import mongoose from 'mongoose'
+import { Schema, model, models } from 'mongoose'
 
-const productSchema = new mongoose.Schema(
+import { type Product as Products } from 'types'
+
+const productSchema = new Schema<Products>(
   {
     title: {
       type: String,
@@ -34,4 +36,4 @@ const productSchema = new mongoose.Schema(
   { timestamps: true },
 )
 
-export const Product = mongoose.models.Product || mongoose.model('Product', productSchema)
+export const Product = models.Product || model<Products>('Product', productSchema)

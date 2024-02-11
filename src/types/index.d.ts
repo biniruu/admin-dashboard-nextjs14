@@ -16,8 +16,8 @@ export interface Product {
   color?: string
   title: string
   desc: string
-  price: string
-  stock: string
+  price: number
+  stock: number
   createdAt?: Date
   updatedAt?: Date
 }

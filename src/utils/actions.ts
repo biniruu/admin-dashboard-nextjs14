@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 import { connectToDB } from './connectionsToDB'
+import getHashedPassword from './passwordSecurity'
 
 import { User } from 'model/userScheme'
 import { type User as Users } from 'types'
@@ -16,10 +17,13 @@ const addUser = async (formData: FormData) => {
 
   try {
     await connectToDB()
+
+    const hashedPassword = await getHashedPassword(password)
+
     await User.create<Users>({
       username,
       email,
-      password,
+      password: hashedPassword,
       phone,
       address,
       isAdmin,

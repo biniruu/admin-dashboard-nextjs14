@@ -12,8 +12,8 @@ export interface CardData {
 export interface Product {
   id?: string
   img?: string
-  size: string
-  color: string
+  size?: string
+  color?: string
   title: string
   desc: string
   price: string

@@ -22,7 +22,7 @@ function SingleUserPage({ params }: Props) {
   const user: Omit<User, 'password'> = {
     img: '',
     username: '',
-    id: '',
+    _id: '',
     email: '',
     phone: '',
     address: '',
@@ -81,7 +81,8 @@ function SingleUserPage({ params }: Props) {
       </div>
       <div className="flex-[3] rounded-default bg-bg-soft p-5">
         <form action={updateUser} className={`${styles.form} flex flex-col`}>
-          <input type="hidden" name="id" value={user.id} />
+          {/* eslint-disable-next-line no-underscore-dangle */}
+          <input type="hidden" name="id" value={user._id} />
 
           {inputFormData.map(item => {
             const { type, label, placeholder } = item

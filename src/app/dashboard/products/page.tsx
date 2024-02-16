@@ -4,6 +4,7 @@ import Pagination from 'components/pagination/Pagination'
 import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
 import { type Product } from 'types'
+import { deleteProduct } from 'utils/actions'
 import { fetchProducts } from 'utils/fetchData'
 
 interface Props {
@@ -23,9 +24,6 @@ async function ProductsPage({ searchParams }: Props) {
 
   const { products, totalProducts } = (await fetchProducts(searchKeywords, pageNumber)) as FetchProducts
 
-  // TODO: convert into importing data from database
-  // const deleteProduct = () => {}
-
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
       <div className="flex items-center justify-between">
@@ -36,8 +34,7 @@ async function ProductsPage({ searchParams }: Props) {
           </button>
         </Link>
       </div>
-      {/* <ProductsTable products={products} deleteProduct={deleteProduct} /> */}
-      <ProductsTable products={products} />
+      <ProductsTable products={products} deleteProduct={deleteProduct} />
       <Pagination total={totalProducts} />
     </div>
   )

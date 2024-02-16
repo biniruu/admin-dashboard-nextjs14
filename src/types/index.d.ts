@@ -10,7 +10,7 @@ export interface CardData {
 }
 
 export interface Product {
-  id?: string
+  _id?: string
   img?: string
   size?: string
   color?: string
@@ -23,7 +23,7 @@ export interface Product {
 }
 
 export interface User {
-  id?: string
+  _id?: string
   img?: string
   username: string
   email: string

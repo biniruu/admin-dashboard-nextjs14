@@ -36,9 +36,16 @@ export const fetchProducts = async (searchKeywords: string, pageNumber: number) 
     await connectToDB()
 
     // TODO: Create a variable for reusable User.find method and replace User.find with the created variable
-    const products = (await Product.find({ title: { $regex: regex } })
+    const data = (await Product.find({ title: { $regex: regex } })
+      .lean()
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Products[]
+    const products = data.map(product => {
+      // eslint-disable-next-line no-underscore-dangle
+      const newProduct = { ...product, _id: product._id?.toString() }
+
+      return newProduct
+    })
     const totalProducts = await Product.find({ title: { $regex: regex } }).countDocuments()
 
     return { products, totalProducts }

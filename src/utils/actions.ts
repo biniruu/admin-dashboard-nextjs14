@@ -7,8 +7,9 @@ import { redirect } from 'next/navigation'
 import { connectToDB } from './connectionsToDB'
 import getHashedPassword from './passwordSecurity'
 
+import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
-import { type Product, type User as Users } from 'types'
+import { type Product as Products, type User as Users } from 'types'
 
 const addUser = async (formData: FormData) => {
   const { username, email, password, phone, address, isAdmin, isActive } = Object.fromEntries(
@@ -39,12 +40,12 @@ const addUser = async (formData: FormData) => {
 }
 
 const addProduct = async (formData: FormData) => {
-  const { title, desc, price, stock, color, size } = Object.fromEntries(formData) as unknown as Product
+  const { title, desc, price, stock, color, size } = Object.fromEntries(formData) as unknown as Products
 
   try {
     await connectToDB()
 
-    await User.create<Product>({
+    await Product.create<Products>({
       title,
       desc,
       price,
@@ -61,4 +62,19 @@ const addProduct = async (formData: FormData) => {
   redirect('/dashboard/products')
 }
 
-export { addProduct, addUser }
+const deleteProduct = async (formData: FormData) => {
+  const { id } = Object.fromEntries(formData)
+
+  try {
+    await connectToDB()
+
+    await Product.findByIdAndDelete(id)
+  } catch (error) {
+    const err = error as Error
+    console.error(err.message)
+  }
+
+  revalidatePath('/dashboard/products')
+}
+
+export { addProduct, addUser, deleteProduct }

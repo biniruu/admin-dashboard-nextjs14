@@ -11,14 +11,10 @@ const tableHead: string[] = ['title', 'description', 'price', 'created at', 'sto
 
 interface Props {
   products: Product[]
-  // deleteProduct: () => void
+  deleteProduct: (formData: FormData) => Promise<void>
 }
 
-// function ProductsTable({ products, deleteProduct }: Props) {
-function ProductsTable({ products }: Props) {
-  // TODO: convert into importing data from database
-  const deleteProduct = () => {}
-
+function ProductsTable({ products, deleteProduct }: Props) {
   return (
     <table className={`${styles.table} w-full`}>
       <thead>
@@ -30,7 +26,8 @@ function ProductsTable({ products }: Props) {
       </thead>
       <tbody>
         {products?.map(product => {
-          const { id, img, title, desc, price, createdAt, stock } = product
+          const { _id, img, title, desc, price, createdAt, stock } = product
+          const id = _id?.toString()
 
           return (
             <tr key={id}>

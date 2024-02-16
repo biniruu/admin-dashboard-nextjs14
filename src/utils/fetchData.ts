@@ -6,6 +6,33 @@ import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
 import { type Product as Products, type User as Users } from 'types'
 
+const fetchUser = async (id: string) => {
+  try {
+    await connectToDB()
+
+    const user = (await User.findById(id)) as Users
+
+    return user
+  } catch (error) {
+    const err = error as Error
+    console.error(err.message)
+  }
+}
+
+const fetchProduct = async (id: string) => {
+  try {
+    await connectToDB()
+
+    const product = (await Product.findById(id)) as Products
+
+    return product
+  } catch (error) {
+    const err = error as Error
+    console.error(err.message)
+  }
+}
+
+// fetching documents from DB
 const fetchData = async (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
   dataType: Model<any, {}, {}, {}, any, any>,
@@ -23,7 +50,7 @@ const fetchData = async (
   return data
 }
 
-// convert type of '_id' in fetched data from mongoose.ObjectId to string
+// converting type of '_id' in fetched data from mongoose.ObjectId to string
 const convertIdTypeToString = (data: Users[] | Products[]) => {
   const newData = data.map(item => {
     // eslint-disable-next-line no-underscore-dangle
@@ -31,23 +58,6 @@ const convertIdTypeToString = (data: Users[] | Products[]) => {
   })
 
   return newData
-}
-
-const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
-  const regex = new RegExp(searchKeywords, 'i')
-
-  try {
-    await connectToDB()
-
-    const data = (await fetchData(User, 'username', pageNumber, regex)) as Users[]
-    const users = convertIdTypeToString(data)
-    const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
-
-    return { users, totalUsers }
-  } catch (error) {
-    const err = error as Error
-    console.error(err.message)
-  }
 }
 
 const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
@@ -67,4 +77,21 @@ const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
   }
 }
 
-export { fetchProducts, fetchUsers }
+const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
+  const regex = new RegExp(searchKeywords, 'i')
+
+  try {
+    await connectToDB()
+
+    const data = (await fetchData(User, 'username', pageNumber, regex)) as Users[]
+    const users = convertIdTypeToString(data)
+    const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
+
+    return { users, totalUsers }
+  } catch (error) {
+    const err = error as Error
+    console.error(err.message)
+  }
+}
+
+export { fetchProduct, fetchProducts, fetchUser, fetchUsers }

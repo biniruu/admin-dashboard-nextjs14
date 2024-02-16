@@ -6,6 +6,16 @@ import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
 import { type Product as Products, type User as Users } from 'types'
 
+// convert type of '_id' in fetched data from mongoose.ObjectId to string
+const convertIdTypeToString = (data: Users[] | Products[]) => {
+  const newData = data.map(item => {
+    // eslint-disable-next-line no-underscore-dangle
+    return { ...item, _id: item._id?.toString() }
+  })
+
+  return newData
+}
+
 export const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
   const regex = new RegExp(searchKeywords, 'i')
 
@@ -20,13 +30,7 @@ export const fetchUsers = async (searchKeywords: string, pageNumber: number) => 
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Users[]
 
-    // convert type of _id to string
-    const users = data.map(user => {
-      // eslint-disable-next-line no-underscore-dangle
-      const newUser = { ...user, _id: user._id?.toString() }
-
-      return newUser
-    })
+    const users = convertIdTypeToString(data)
     const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
 
     return { users, totalUsers }
@@ -49,12 +53,8 @@ export const fetchProducts = async (searchKeywords: string, pageNumber: number) 
       .lean()
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Products[]
-    const products = data.map(product => {
-      // eslint-disable-next-line no-underscore-dangle
-      const newProduct = { ...product, _id: product._id?.toString() }
 
-      return newProduct
-    })
+    const products = convertIdTypeToString(data)
     const totalProducts = await Product.find({ title: { $regex: regex } }).countDocuments()
 
     return { products, totalProducts }

@@ -49,7 +49,7 @@ function UsersTable({ users, deleteUser }: Props) {
               <td>{isAdmin ? 'admin' : 'user'}</td>
               <td>{isActive ? 'active' : 'passive'}</td>
               <td className="flex gap-default">
-                <Link href="/">
+                <Link href={`/dashboard/users/${id}`}>
                   <button className={`${styles.button} bg-[teal]`}>view</button>
                 </Link>
                 <form action={deleteUser}>

@@ -11,6 +11,10 @@ import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
 import { type Product as Products, type User as Users } from 'types'
 
+const logErrorToConsole = (error: Error) => {
+  console.error(error.message)
+}
+
 const addUser = async (formData: FormData) => {
   const { username, email, password, phone, address, isAdmin, isActive } = Object.fromEntries(
     formData,
@@ -31,8 +35,7 @@ const addUser = async (formData: FormData) => {
       isActive,
     })
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 
   revalidatePath('/dashboard/users')
@@ -54,8 +57,7 @@ const addProduct = async (formData: FormData) => {
       size,
     })
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 
   revalidatePath('/dashboard/products')
@@ -70,8 +72,7 @@ const deleteProduct = async (formData: FormData) => {
 
     await Product.findByIdAndDelete(id)
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 
   revalidatePath('/dashboard/products')
@@ -85,8 +86,7 @@ const deleteUser = async (formData: FormData) => {
 
     await User.findByIdAndDelete(id)
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 
   revalidatePath('/dashboard/users')

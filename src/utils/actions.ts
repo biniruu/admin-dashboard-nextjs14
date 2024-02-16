@@ -1,6 +1,6 @@
 'use server'
 
-import { type Error } from 'mongoose'
+import { type Error, type Model } from 'mongoose'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
@@ -10,6 +10,9 @@ import getHashedPassword from './passwordSecurity'
 import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
 import { type Product as Products, type User as Users } from 'types'
+
+const userPath = '/dashboard/users'
+const productPath = '/dashboard/products'
 
 const logErrorToConsole = (error: Error) => {
   console.error(error.message)
@@ -24,7 +27,6 @@ const addUser = async (formData: FormData) => {
     await connectToDB()
 
     const hashedPassword = await getHashedPassword(password)
-
     await User.create<Users>({
       username,
       email,
@@ -38,8 +40,8 @@ const addUser = async (formData: FormData) => {
     logErrorToConsole(error as Error)
   }
 
-  revalidatePath('/dashboard/users')
-  redirect('/dashboard/users')
+  revalidatePath(userPath)
+  redirect(userPath)
 }
 
 const addProduct = async (formData: FormData) => {
@@ -60,36 +62,31 @@ const addProduct = async (formData: FormData) => {
     logErrorToConsole(error as Error)
   }
 
-  revalidatePath('/dashboard/products')
-  redirect('/dashboard/products')
+  revalidatePath(productPath)
+  redirect(productPath)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
+const deleteData = async (formData: FormData, dataType: Model<any, {}, {}, {}, any, any>, path: string) => {
+  const { id } = Object.fromEntries(formData)
+
+  try {
+    await connectToDB()
+
+    await dataType.findByIdAndDelete(id)
+  } catch (error) {
+    logErrorToConsole(error as Error)
+  }
+
+  revalidatePath(path)
 }
 
 const deleteProduct = async (formData: FormData) => {
-  const { id } = Object.fromEntries(formData)
-
-  try {
-    await connectToDB()
-
-    await Product.findByIdAndDelete(id)
-  } catch (error) {
-    logErrorToConsole(error as Error)
-  }
-
-  revalidatePath('/dashboard/products')
+  await deleteData(formData, Product, productPath)
 }
 
 const deleteUser = async (formData: FormData) => {
-  const { id } = Object.fromEntries(formData)
-
-  try {
-    await connectToDB()
-
-    await User.findByIdAndDelete(id)
-  } catch (error) {
-    logErrorToConsole(error as Error)
-  }
-
-  revalidatePath('/dashboard/users')
+  await deleteData(formData, User, userPath)
 }
 
 export { addProduct, addUser, deleteProduct, deleteUser }

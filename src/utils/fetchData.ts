@@ -1,10 +1,27 @@
-import { type Error } from 'mongoose'
+import { type Error, type Model } from 'mongoose'
 
 import { connectToDB } from './connectionsToDB'
 
 import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
 import { type Product as Products, type User as Users } from 'types'
+
+const fetchData = async (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
+  dataType: Model<any, {}, {}, {}, any, any>,
+  field: string,
+  pageNumber: number,
+  regex: RegExp,
+) => {
+  const ITEM_PER_PAGE = 2
+  const data = (await dataType
+    .find({ [field]: { $regex: regex } })
+    .lean()
+    .limit(ITEM_PER_PAGE)
+    .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Users[] | Products[]
+
+  return data
+}
 
 // convert type of '_id' in fetched data from mongoose.ObjectId to string
 const convertIdTypeToString = (data: Users[] | Products[]) => {
@@ -16,20 +33,13 @@ const convertIdTypeToString = (data: Users[] | Products[]) => {
   return newData
 }
 
-export const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
+const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
   const regex = new RegExp(searchKeywords, 'i')
-
-  const ITEM_PER_PAGE = 2
 
   try {
     await connectToDB()
 
-    // TODO: Create a variable for reusable User.find method and replace User.find with the created variable
-    const data = (await User.find({ username: { $regex: regex } })
-      .lean()
-      .limit(ITEM_PER_PAGE)
-      .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Users[]
-
+    const data = (await fetchData(User, 'username', pageNumber, regex)) as Users[]
     const users = convertIdTypeToString(data)
     const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
 
@@ -40,20 +50,13 @@ export const fetchUsers = async (searchKeywords: string, pageNumber: number) => 
   }
 }
 
-export const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
+const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
   const regex = new RegExp(searchKeywords, 'i')
-
-  const ITEM_PER_PAGE = 2
 
   try {
     await connectToDB()
 
-    // TODO: Create a variable for reusable User.find method and replace User.find with the created variable
-    const data = (await Product.find({ title: { $regex: regex } })
-      .lean()
-      .limit(ITEM_PER_PAGE)
-      .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Products[]
-
+    const data = (await fetchData(Product, 'title', pageNumber, regex)) as Products[]
     const products = convertIdTypeToString(data)
     const totalProducts = await Product.find({ title: { $regex: regex } }).countDocuments()
 
@@ -63,3 +66,5 @@ export const fetchProducts = async (searchKeywords: string, pageNumber: number) 
     console.error(err.message)
   }
 }
+
+export { fetchProducts, fetchUsers }

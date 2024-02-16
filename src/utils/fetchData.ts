@@ -6,6 +6,10 @@ import { Product } from 'model/productScheme'
 import { User } from 'model/userScheme'
 import { type Product as Products, type User as Users } from 'types'
 
+const logErrorToConsole = (error: Error) => {
+  console.error(error.message)
+}
+
 const fetchUser = async (id: string) => {
   try {
     await connectToDB()
@@ -14,8 +18,7 @@ const fetchUser = async (id: string) => {
 
     return user
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 }
 
@@ -27,8 +30,7 @@ const fetchProduct = async (id: string) => {
 
     return product
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 }
 
@@ -72,8 +74,7 @@ const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
 
     return { products, totalProducts }
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 }
 
@@ -89,8 +90,7 @@ const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
 
     return { users, totalUsers }
   } catch (error) {
-    const err = error as Error
-    console.error(err.message)
+    logErrorToConsole(error as Error)
   }
 }
 

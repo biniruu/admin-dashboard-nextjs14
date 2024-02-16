@@ -15,9 +15,18 @@ export const fetchUsers = async (searchKeywords: string, pageNumber: number) => 
     await connectToDB()
 
     // TODO: Create a variable for reusable User.find method and replace User.find with the created variable
-    const users = (await User.find({ username: { $regex: regex } })
+    const data = (await User.find({ username: { $regex: regex } })
+      .lean()
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Users[]
+
+    // convert type of _id to string
+    const users = data.map(user => {
+      // eslint-disable-next-line no-underscore-dangle
+      const newUser = { ...user, _id: user._id?.toString() }
+
+      return newUser
+    })
     const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
 
     return { users, totalUsers }

@@ -1,3 +1,5 @@
+'use client'
+
 import dayjs from 'dayjs'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,9 +12,10 @@ const tableHead: string[] = ['name', 'email', 'created at', 'role', 'status', 'a
 
 interface Props {
   users: User[]
+  deleteUser: (formData: FormData) => Promise<void>
 }
 
-function UsersTable({ users }: Props) {
+function UsersTable({ users, deleteUser }: Props) {
   return (
     <table className={`w-full ${styles.table}`}>
       <thead>
@@ -24,7 +27,7 @@ function UsersTable({ users }: Props) {
       </thead>
       <tbody>
         {users?.map(user => {
-          const { id, img, username, email, isAdmin, isActive, createdAt } = user
+          const { _id: id, img, username, email, isAdmin, isActive, createdAt } = user
           const date = createdAt && dayjs(createdAt).format('YYYY/MM/DD')
 
           return (
@@ -49,7 +52,10 @@ function UsersTable({ users }: Props) {
                 <Link href="/">
                   <button className={`${styles.button} bg-[teal]`}>view</button>
                 </Link>
-                <button className={`${styles.button} bg-[crimson]`}>delete</button>
+                <form action={deleteUser}>
+                  <input type="hidden" name="id" value={id} />
+                  <button className={`${styles.button} bg-[crimson]`}>delete</button>
+                </form>
               </td>
             </tr>
           )

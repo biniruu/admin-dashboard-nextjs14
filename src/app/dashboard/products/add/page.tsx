@@ -7,7 +7,6 @@ import { addProduct } from 'utils/actions'
 function AddProductPage() {
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form action={addProduct} className={`${styles.form} flex flex-wrap justify-between`}>
         <input type="text" placeholder="title" name="title" required />
         <select name="cat" id="cat">

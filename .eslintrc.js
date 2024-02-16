@@ -154,6 +154,8 @@ module.exports = {
      * ban-ts-comment : 설명을 추가하는 조건으로 @ts-expect-error, @ts-ignore, @ts-nocheck, @ts-check 주석을 허용
      * no-explicit-any
      * no-floating-promises
+     * @property {Object} 'no-misused-promises' - To prevent passing promises to place that are not designed to handle them.
+     * @property {boolean} 'no-misused-promises'.checksVoidReturn.attributes - Weather to check async functions passed as JSX (and <form> tag) attributes.
      * no-unsafe-argument
      * no-unsafe-assignment : any 타입 사용 시 알림을 띄움
      * no-unsafe-call
@@ -180,6 +182,14 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-floating-promises': 'warn',
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      },
+    ],
     '@typescript-eslint/no-unsafe-argument': 'error',
     '@typescript-eslint/no-unsafe-assignment': 'error',
     '@typescript-eslint/no-unsafe-call': 'error',

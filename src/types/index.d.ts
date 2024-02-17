@@ -10,7 +10,7 @@ export interface CardData {
 }
 
 export interface Product {
-  _id?: string
+  id: string
   img?: string
   size?: string
   color?: string
@@ -18,12 +18,12 @@ export interface Product {
   desc: string
   price: number
   stock: number
-  createdAt?: Date
-  updatedAt?: Date
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface User {
-  _id?: string
+  id: string
   img?: string
   username: string
   email: string
@@ -32,6 +32,6 @@ export interface User {
   password: string
   isAdmin: boolean
   isActive: boolean
-  createdAt?: Date
-  updatedAt?: Date
+  createdAt: Date
+  updatedAt: Date
 }

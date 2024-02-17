@@ -43,9 +43,9 @@ const convertId = (data: FetchUser[] | FetchProduct[]) => {
   const newData = data.map(item => {
     const id = item['_id']?.toString()
     delete item['_id' as keyof typeof item]
-    const newObj = { ...item, id } as Users | Products
+    const newItem = { ...item, id } as Users | Products
 
-    return newObj
+    return newItem
   })
 
   return newData

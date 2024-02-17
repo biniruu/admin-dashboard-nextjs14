@@ -1,4 +1,4 @@
-import { type Error, type Model } from 'mongoose'
+import { type Error, type Model, type Types } from 'mongoose'
 
 import { connectToDB } from './connectionsToDB'
 
@@ -34,6 +34,28 @@ const fetchProduct = async (id: string) => {
   }
 }
 
+type FetchData<T> = Omit<T, 'id'> & { _id: Types.ObjectId }
+type FetchUser = FetchData<Users>
+type FetchProduct = FetchData<Products>
+
+// remove an '_id' property then add an 'id' one that has a string type
+const convertId = (data: FetchUser[] | FetchProduct[]) => {
+  const newData = data.map(item => {
+    // eslint-disable-next-line no-underscore-dangle
+    const id = item._id?.toString()
+
+    // An '_id' is a required type, so converting it as an optional and then remove.
+    // eslint-disable-next-line no-underscore-dangle
+    delete (item as { _id?: Types.ObjectId })._id
+
+    const newObj = { ...item, id } as Users | Products
+
+    return newObj
+  })
+
+  return newData
+}
+
 // fetching documents from DB
 const fetchData = async (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
@@ -47,17 +69,10 @@ const fetchData = async (
     .find({ [field]: { $regex: regex } })
     .lean()
     .limit(ITEM_PER_PAGE)
-    .skip(ITEM_PER_PAGE * (pageNumber - 1))) as Users[] | Products[]
+    .skip(ITEM_PER_PAGE * (pageNumber - 1))) as FetchUser[] | FetchProduct[]
 
-  return data
-}
-
-// converting type of '_id' in fetched data from mongoose.ObjectId to string
-const convertIdTypeToString = (data: Users[] | Products[]) => {
-  const newData = data.map(item => {
-    // eslint-disable-next-line no-underscore-dangle
-    return { ...item, _id: item._id?.toString() }
-  })
+  // need an 'id' property instead of an '_id'
+  const newData = convertId(data)
 
   return newData
 }
@@ -68,8 +83,7 @@ const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
   try {
     await connectToDB()
 
-    const data = (await fetchData(Product, 'title', pageNumber, regex)) as Products[]
-    const products = convertIdTypeToString(data)
+    const products = (await fetchData(Product, 'title', pageNumber, regex)) as Products[]
     const totalProducts = await Product.find({ title: { $regex: regex } }).countDocuments()
 
     return { products, totalProducts }
@@ -84,8 +98,7 @@ const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
   try {
     await connectToDB()
 
-    const data = (await fetchData(User, 'username', pageNumber, regex)) as Users[]
-    const users = convertIdTypeToString(data)
+    const users = (await fetchData(User, 'username', pageNumber, regex)) as Users[]
     const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
 
     return { users, totalUsers }

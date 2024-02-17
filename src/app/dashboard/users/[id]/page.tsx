@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from './singleUser.module.css'
 
 import { type User } from 'types'
+import { updateUser } from 'utils/actions'
 import { fetchUser } from 'utils/fetchData'
 
 interface Params {
@@ -67,7 +68,7 @@ async function SingleUserPage({ params }: Props) {
         {username}
       </div>
       <div className="flex-[3] rounded-default bg-bg-soft p-5">
-        <form className={`${styles.form} flex flex-col`}>
+        <form action={updateUser} className={`${styles.form} flex flex-col`}>
           <input type="hidden" name="id" value={id} />
 
           {inputFormData.map(item => {

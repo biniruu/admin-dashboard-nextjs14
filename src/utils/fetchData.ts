@@ -41,13 +41,8 @@ type FetchProduct = FetchData<Products>
 // remove an '_id' property then add an 'id' one that has a string type
 const convertId = (data: FetchUser[] | FetchProduct[]) => {
   const newData = data.map(item => {
-    // eslint-disable-next-line no-underscore-dangle
-    const id = item._id?.toString()
-
-    // An '_id' is a required type, so converting it as an optional and then remove.
-    // eslint-disable-next-line no-underscore-dangle
-    delete (item as { _id?: Types.ObjectId })._id
-
+    const id = item['_id']?.toString()
+    delete item['_id' as keyof typeof item]
     const newObj = { ...item, id } as Users | Products
 
     return newObj

@@ -26,8 +26,7 @@ function ProductsTable({ products, deleteProduct }: Props) {
       </thead>
       <tbody>
         {products?.map(product => {
-          const { _id, img, title, desc, price, createdAt, stock } = product
-          const id = _id?.toString()
+          const { id, img, title, desc, price, createdAt, stock } = product
 
           return (
             <tr key={id}>

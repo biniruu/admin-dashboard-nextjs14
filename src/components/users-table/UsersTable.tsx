@@ -27,7 +27,7 @@ function UsersTable({ users, deleteUser }: Props) {
       </thead>
       <tbody>
         {users?.map(user => {
-          const { _id: id, img, username, email, isAdmin, isActive, createdAt } = user
+          const { id, img, username, email, isAdmin, isActive, createdAt } = user
           const date = createdAt && dayjs(createdAt).format('YYYY/MM/DD')
 
           return (

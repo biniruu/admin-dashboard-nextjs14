@@ -44,56 +44,6 @@ const addUser = async (formData: FormData) => {
   redirect(userPath)
 }
 
-const updateUser = async (formData: FormData) => {
-  try {
-    await connectToDB()
-
-    const fields = Object.fromEntries(formData) as unknown as Users
-
-    const { id } = fields
-    // 'id' must be deleted. There are no 'id' fields in DB.
-    delete fields['id' as keyof typeof fields]
-    Object.keys(fields).forEach(key => {
-      const hasValue = fields[key as keyof typeof fields] !== '' || undefined
-      if (!hasValue) {
-        delete fields[key as keyof typeof fields]
-      }
-    })
-
-    await User.findByIdAndUpdate(id, fields)
-  } catch (error) {
-    logErrorToConsole(error as Error)
-  }
-
-  revalidatePath(userPath)
-  redirect(userPath)
-}
-
-const updateProduct = async (formData: FormData) => {
-  try {
-    await connectToDB()
-
-    const fields = Object.fromEntries(formData) as unknown as Products
-
-    const { id } = fields
-    // 'id' must be deleted. There are no 'id' fields in DB.
-    delete fields['id' as keyof typeof fields]
-    Object.keys(fields).forEach(key => {
-      const hasValue = fields[key as keyof typeof fields] !== '' || undefined
-      if (!hasValue) {
-        delete fields[key as keyof typeof fields]
-      }
-    })
-
-    await Product.findByIdAndUpdate(id, fields)
-  } catch (error) {
-    logErrorToConsole(error as Error)
-  }
-
-  revalidatePath(productPath)
-  redirect(productPath)
-}
-
 const addProduct = async (formData: FormData) => {
   const { title, desc, price, stock, color, size } = Object.fromEntries(formData) as unknown as Products
 
@@ -108,6 +58,56 @@ const addProduct = async (formData: FormData) => {
       color,
       size,
     })
+  } catch (error) {
+    logErrorToConsole(error as Error)
+  }
+
+  revalidatePath(productPath)
+  redirect(productPath)
+}
+
+const getUpdateFields = (formData: FormData) => {
+  const fields = Object.fromEntries(formData) as unknown as Users | Products
+  const { id } = fields
+  // 'id' must be deleted. There are no 'id' fields in DB.
+  delete fields['id' as keyof typeof fields]
+  Object.keys(fields).forEach(key => {
+    const hasValue = fields[key as keyof typeof fields] !== '' || undefined
+    if (!hasValue) {
+      delete fields[key as keyof typeof fields]
+    }
+  })
+
+  return { id, fields }
+}
+
+interface Fields<T> {
+  id: string
+  fields: T
+}
+
+const updateUser = async (formData: FormData) => {
+  try {
+    await connectToDB()
+
+    const { id, fields } = getUpdateFields(formData) as Fields<Users>
+
+    await User.findByIdAndUpdate(id, fields)
+  } catch (error) {
+    logErrorToConsole(error as Error)
+  }
+
+  revalidatePath(userPath)
+  redirect(userPath)
+}
+
+const updateProduct = async (formData: FormData) => {
+  try {
+    await connectToDB()
+
+    const { id, fields } = getUpdateFields(formData) as Fields<Products>
+
+    await Product.findByIdAndUpdate(id, fields)
   } catch (error) {
     logErrorToConsole(error as Error)
   }

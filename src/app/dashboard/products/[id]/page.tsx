@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from './singleProduct.module.css'
 
 import { type Product } from 'types'
+import { updateProduct } from 'utils/actions'
 import { fetchProduct } from 'utils/fetchData'
 
 interface Params {
@@ -56,7 +57,7 @@ async function SingleProductPage({ params }: Props) {
         {title}
       </div>
       <div className="flex-[3] rounded-default bg-bg-soft p-5">
-        <form className={`${styles.form} flex flex-col`}>
+        <form action={updateProduct} className={`${styles.form} flex flex-col`}>
           <input type="hidden" name="id" value={id} />
 
           {inputFormData.map(item => {

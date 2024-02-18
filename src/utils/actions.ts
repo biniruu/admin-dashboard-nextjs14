@@ -69,6 +69,31 @@ const updateUser = async (formData: FormData) => {
   redirect(userPath)
 }
 
+const updateProduct = async (formData: FormData) => {
+  try {
+    await connectToDB()
+
+    const fields = Object.fromEntries(formData) as unknown as Products
+
+    const { id } = fields
+    // 'id' must be deleted. There are no 'id' fields in DB.
+    delete fields['id' as keyof typeof fields]
+    Object.keys(fields).forEach(key => {
+      const hasValue = fields[key as keyof typeof fields] !== '' || undefined
+      if (!hasValue) {
+        delete fields[key as keyof typeof fields]
+      }
+    })
+
+    await Product.findByIdAndUpdate(id, fields)
+  } catch (error) {
+    logErrorToConsole(error as Error)
+  }
+
+  revalidatePath(productPath)
+  redirect(productPath)
+}
+
 const addProduct = async (formData: FormData) => {
   const { title, desc, price, stock, color, size } = Object.fromEntries(formData) as unknown as Products
 
@@ -114,4 +139,4 @@ const deleteUser = async (formData: FormData) => {
   await deleteData(formData, User, userPath)
 }
 
-export { addProduct, addUser, deleteProduct, deleteUser, updateUser }
+export { addProduct, addUser, deleteProduct, deleteUser, updateProduct, updateUser }

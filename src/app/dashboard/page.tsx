@@ -41,13 +41,9 @@ function Dashboard() {
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.cards}>
-          {/* TODO: remove idx from map */}
-          {cardData.map((item, idx) => {
-            const { icon, title, number, state, rate, detail } = item
-
-            return (
-              <Card key={idx} icon={icon} title={title} number={number} state={state} rate={rate} detail={detail} />
-            )
+          {/* TODO: remove idx from map and use an unique data instead */}
+          {cardData.map((data, idx) => {
+            return <Card key={idx} data={data} />
           })}
         </div>
         <Transactions />

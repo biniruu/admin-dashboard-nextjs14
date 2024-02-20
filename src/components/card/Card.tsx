@@ -1,6 +1,12 @@
 import { type CardData } from 'types'
 
-function Card({ icon, title, number, state, rate, detail }: CardData) {
+interface Props {
+  data: CardData
+}
+
+function Card({ data }: Props) {
+  const { icon, title, number, state, rate, detail } = data
+
   return (
     <div className="flex w-full cursor-pointer gap-5 rounded bg-bg-soft p-5 hover:bg-hover">
       {icon}

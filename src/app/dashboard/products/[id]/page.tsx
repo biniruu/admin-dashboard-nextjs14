@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import styles from './singleProduct.module.css'
 
+import getProductInputFormData from 'data/productInputFormData'
 import { type Product } from 'types'
 import { updateProduct } from 'utils/actions'
 import { fetchProduct } from 'utils/fetchData'
@@ -17,36 +18,9 @@ interface Props {
 async function SingleProductPage({ params }: Props) {
   const { id } = params
   const product = (await fetchProduct(id)) as Product
-
+  const { size, desc, title } = product
   // TODO: add a category field to DB
-  const { title, price, stock, color, size, desc } = product
-
-  const inputFormData = [
-    {
-      type: 'text',
-      label: 'title',
-      value: title,
-      placeholder: 'title',
-    },
-    {
-      type: 'text',
-      label: 'price',
-      value: price,
-      placeholder: 'price',
-    },
-    {
-      type: 'text',
-      label: 'stock',
-      value: stock,
-      placeholder: 'stock',
-    },
-    {
-      type: 'text',
-      label: 'color',
-      value: color,
-      placeholder: color || 'color',
-    },
-  ]
+  const { inputFormData } = getProductInputFormData(product)
 
   return (
     <div className="mt-5 flex gap-[3.125rem]">

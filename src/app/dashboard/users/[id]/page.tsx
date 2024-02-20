@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import styles from './singleUser.module.css'
 
+import getUserInputFormData from 'data/userInputFormData'
 import { type User } from 'types'
 import { updateUser } from 'utils/actions'
 import { fetchUser } from 'utils/fetchData'
@@ -17,47 +18,8 @@ interface Props {
 async function SingleUserPage({ params }: Props) {
   const { id } = params
   const user = (await fetchUser(id)) as User
-  const { username, phone, isAdmin, isActive, img, address, email, password } = user
-
-  const inputFormData = [
-    {
-      type: 'text',
-      label: 'username',
-      value: username,
-      placeholder: 'username',
-    },
-    {
-      type: 'email',
-      label: 'email',
-      value: email,
-      placeholder: 'email',
-    },
-    {
-      type: 'password',
-      label: 'password',
-      value: password,
-      placeholder: 'password',
-    },
-    {
-      type: 'text',
-      label: 'phone',
-      value: phone,
-      placeholder: 'phone number',
-    },
-  ]
-
-  const selectFormData = [
-    {
-      label: 'is admin?',
-      name: 'is-admin',
-      selected: isAdmin,
-    },
-    {
-      label: 'is active?',
-      name: 'is-active',
-      selected: isActive,
-    },
-  ]
+  const { img, address, username } = user
+  const { inputFormData, selectFormData } = getUserInputFormData(user)
 
   return (
     <div className="mt-5 flex gap-[3.125rem]">

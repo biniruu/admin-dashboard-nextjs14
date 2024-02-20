@@ -7,15 +7,15 @@ import Link from 'next/link'
 import styles from './usersTable.module.css'
 
 import { type User } from 'types'
+import { deleteUser } from 'utils/actions'
 
 const tableHead: string[] = ['name', 'email', 'created at', 'role', 'status', 'action']
 
 interface Props {
   users: User[]
-  deleteUser: (formData: FormData) => Promise<void>
 }
 
-function UsersTable({ users, deleteUser }: Props) {
+function UsersTable({ users }: Props) {
   return (
     <table className={`w-full ${styles.table}`}>
       <thead>

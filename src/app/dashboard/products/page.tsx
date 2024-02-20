@@ -4,7 +4,6 @@ import Pagination from 'components/pagination/Pagination'
 import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
 import { type Product } from 'types'
-import { deleteProduct } from 'utils/actions'
 import { fetchProducts } from 'utils/fetchData'
 
 interface Props {
@@ -35,7 +34,7 @@ async function ProductsPage({ searchParams }: Props) {
           </button>
         </Link>
       </div>
-      <ProductsTable products={products} deleteProduct={deleteProduct} />
+      <ProductsTable products={products} />
       <Pagination total={totalProducts} itemPerPage={ITEM_PER_PAGE} pageNumber={pageNumber} />
     </div>
   )

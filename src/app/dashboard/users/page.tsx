@@ -4,7 +4,6 @@ import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
 import UsersTable from 'components/users-table/UsersTable'
 import { type User } from 'types'
-import { deleteUser } from 'utils/actions'
 import { fetchUsers } from 'utils/fetchData'
 
 interface Props {
@@ -35,7 +34,7 @@ async function UsersPage({ searchParams }: Props) {
         </Link>
       </div>
       {users?.length ? (
-        <UsersTable users={users} deleteUser={deleteUser} />
+        <UsersTable users={users} />
       ) : (
         <p className="mb-5 mt-14 flex justify-center lowercase ">user data not found.</p>
       )}

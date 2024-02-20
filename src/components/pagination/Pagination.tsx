@@ -6,19 +6,17 @@ import useNavFunc from 'hooks/useNavFunc'
 
 interface Props {
   total: number
+  itemPerPage: number
+  pageNumber: number
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function Pagination({ total }: Props) {
+function Pagination({ total, itemPerPage, pageNumber }: Props) {
   const { searchParams, replace, pathname } = useNavFunc()
 
-  const currentPage = searchParams?.get('page')
-  const pageNumber = Number(currentPage) || 1
   const params = new URLSearchParams(searchParams)
-  const ITEM_PER_PAGE = 2
-
-  const hasPrev = ITEM_PER_PAGE * (pageNumber - 1) > 0
-  const hasNext = ITEM_PER_PAGE * (pageNumber - 1) + ITEM_PER_PAGE < total
+  const hasPrev = itemPerPage * (pageNumber - 1) > 0
+  const hasNext = itemPerPage * (pageNumber - 1) + itemPerPage < total
 
   const handleChangePage = (type: 'prev' | 'next') => {
     const page = type === 'prev' ? pageNumber - 1 : pageNumber + 1

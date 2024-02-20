@@ -20,6 +20,7 @@ async function UsersPage({ searchParams }: Props) {
   const searchKeywords = searchParams?.search || ''
   const currentPage = searchParams?.page || '1'
   const pageNumber = Number(currentPage)
+  const ITEM_PER_PAGE = 2
 
   const { users, totalUsers } = (await fetchUsers(searchKeywords, pageNumber)) as FetchUsers
 
@@ -38,7 +39,7 @@ async function UsersPage({ searchParams }: Props) {
       ) : (
         <p className="mb-5 mt-14 flex justify-center lowercase ">user data not found.</p>
       )}
-      <Pagination total={totalUsers} />
+      <Pagination total={totalUsers} itemPerPage={ITEM_PER_PAGE} pageNumber={pageNumber} />
     </div>
   )
 }

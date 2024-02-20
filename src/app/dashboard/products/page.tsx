@@ -5,6 +5,7 @@ import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
 import { type Product } from 'types'
 import { fetchProducts } from 'utils/fetchData'
+import getParams from 'utils/getParams'
 
 interface Props {
   searchParams: { [key: string]: string | undefined }
@@ -17,9 +18,7 @@ interface FetchProducts {
 
 async function ProductsPage({ searchParams }: Props) {
   // TODO: make sure the 'page' parameter is visible as soon as the page opens
-  const searchKeywords = searchParams.search || ''
-  const currentPage = searchParams.page || '1'
-  const pageNumber = Number(currentPage)
+  const { searchKeywords, pageNumber } = getParams(searchParams)
   const ITEM_PER_PAGE = 2
 
   const { products, totalProducts } = (await fetchProducts(searchKeywords, pageNumber)) as FetchProducts

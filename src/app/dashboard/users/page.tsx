@@ -5,6 +5,7 @@ import Searchbar from 'components/searchbar/Searchbar'
 import UsersTable from 'components/users-table/UsersTable'
 import { type User } from 'types'
 import { fetchUsers } from 'utils/fetchData'
+import getParams from 'utils/getParams'
 
 interface Props {
   searchParams: { [key: string]: string | undefined }
@@ -17,9 +18,7 @@ interface FetchUsers {
 
 async function UsersPage({ searchParams }: Props) {
   // TODO: make sure the 'page' parameter is visible as soon as the page opens
-  const searchKeywords = searchParams?.search || ''
-  const currentPage = searchParams?.page || '1'
-  const pageNumber = Number(currentPage)
+  const { searchKeywords, pageNumber } = getParams(searchParams)
   const ITEM_PER_PAGE = 2
 
   const { users, totalUsers } = (await fetchUsers(searchKeywords, pageNumber)) as FetchUsers

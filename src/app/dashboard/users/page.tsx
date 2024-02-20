@@ -17,7 +17,7 @@ interface FetchUsers {
 }
 
 async function UsersPage({ searchParams }: Props) {
-  // get user data by search keywords
+  // TODO: make sure the 'page' parameter is visible as soon as the page opens
   const searchKeywords = searchParams?.search || ''
   const currentPage = searchParams?.page || '1'
   const pageNumber = Number(currentPage)

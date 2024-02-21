@@ -12,5 +12,13 @@
 
   label {
     font-size: 0.75rem;
+    text-align: right;
+    width: 5rem;
+  }
+
+  div {
+    align-items: center;
+    display: flex;
+    gap: 1.25rem;
   }
 }

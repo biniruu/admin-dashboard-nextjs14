@@ -10,7 +10,7 @@ function Navbar() {
     <div className="flex items-center justify-between rounded-default bg-bg-soft p-5">
       <div className="font-bold text-text-soft">{pathname.split('/').pop()}</div>
       <div className="flex items-center gap-5">
-        <div className="items-center rounded-default bg-[#2e374a] p-[0.625rem]">
+        <div className="flex items-center gap-1 rounded-default bg-[#2e374a] p-[0.625rem]">
           <MdSearch />
           <input
             type="text"

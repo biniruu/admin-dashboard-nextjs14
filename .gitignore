@@ -342,11 +342,8 @@ storybook-static/
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
 !.vscode/css_custom_data.json
 
 # Local History for Visual Studio Code

@@ -21,6 +21,8 @@ This is for learning Next.js 14 with a server action and more.
 
 ## Notice
 
+This project has not been built in your local development environment due to security issues with the database.
+
 At this moment, I am going to build just two menus: Users and Products.
 
 I did not originally plan this project; It was created by someone else. I have reproduced it in TypeScript and making extensive refactoring and reorganising the directory structure.

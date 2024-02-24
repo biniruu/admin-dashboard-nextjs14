@@ -3,7 +3,7 @@ import { MdLogout } from 'react-icons/md'
 
 import MenuLink from '../menu-link/MenuLink'
 
-import menuItems from 'data/menuItems'
+import menuItems from './menuItems'
 
 function Sidebar() {
   return (

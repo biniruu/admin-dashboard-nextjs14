@@ -3,9 +3,8 @@ import Chart from '../components/chart/Chart'
 import Rightbar from '../components/rightbar/Rightbar'
 import Transactions from '../components/transactions/Transactions'
 
+import cardData from './cardData'
 import styles from './dashboard.module.css'
-
-import cardData from 'data/cardData'
 
 function Dashboard() {
   return (

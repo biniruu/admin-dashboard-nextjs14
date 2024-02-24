@@ -2,7 +2,7 @@
 
 import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
 
-import data from 'data/dashedLineChartData'
+import data from './dashedLineChartData'
 
 function Chart() {
   return (

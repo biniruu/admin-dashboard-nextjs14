@@ -1,8 +1,7 @@
 import Image from 'next/image'
 
 import styles from './rightbar.module.css'
-
-import rightbarItems from 'data/rightbarItems'
+import rightbarItems from './rightbarItems'
 
 function Rightbar() {
   return (

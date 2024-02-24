@@ -2,7 +2,7 @@
 
 import styles from './pagination.module.css'
 
-import useNavFunc from 'hooks/useNavFunc'
+import useNavFunc from 'app/hooks/useNavFunc'
 
 interface Props {
   total: number

@@ -4,7 +4,7 @@ import { debounce } from 'lodash-es'
 import { ChangeEvent } from 'react'
 import { MdSearch } from 'react-icons/md'
 
-import useNavFunc from 'hooks/useNavFunc'
+import useNavFunc from 'app/hooks/useNavFunc'
 
 interface Props {
   placeholder: string

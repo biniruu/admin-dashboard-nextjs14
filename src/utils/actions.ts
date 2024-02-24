@@ -9,7 +9,7 @@ import getHashedPassword from './passwordSecurity'
 
 import { Product } from 'app/model/productScheme'
 import { User } from 'app/model/userScheme'
-import { type Product as Products, type User as Users } from 'types'
+import { type Product as Products, type User as Users } from 'app/types'
 
 const userPath = '/dashboard/users'
 const productPath = '/dashboard/products'

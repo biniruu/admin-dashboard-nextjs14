@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Pagination from 'app/components/pagination/Pagination'
 import ProductsTable from 'app/components/products-table/ProductsTable'
 import Searchbar from 'app/components/searchbar/Searchbar'
-import { type Product } from 'types'
+import { type Product } from 'app/types'
 import { fetchProducts } from 'utils/fetchData'
 import getParams from 'utils/getParams'
 

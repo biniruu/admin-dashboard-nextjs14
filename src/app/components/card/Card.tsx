@@ -1,4 +1,4 @@
-import { type CardData } from 'types'
+import { type CardData } from 'app/types'
 
 interface Props {
   data: CardData

@@ -1,4 +1,4 @@
-import { type Product } from 'types'
+import { type Product } from 'app/types'
 
 const getProductInputFormData = (product: Product) => {
   const { title, price, stock, color } = product

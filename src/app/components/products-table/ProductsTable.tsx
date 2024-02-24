@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import styles from './productsTable.module.css'
 
-import { type Product } from 'types'
+import { type Product } from 'app/types'
 import { deleteProduct } from 'utils/actions'
 
 const tableHead: string[] = ['title', 'description', 'price', 'created at', 'stock', 'action']

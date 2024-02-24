@@ -4,7 +4,7 @@ import { connectToDB } from './connectionsToDB'
 
 import { Product } from 'app/model/productScheme'
 import { User } from 'app/model/userScheme'
-import { type Product as Products, type User as Users } from 'types'
+import { type Product as Products, type User as Users } from 'app/types'
 
 const logErrorToConsole = (error: Error) => {
   console.error(error.message)

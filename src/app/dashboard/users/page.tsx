@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-import Pagination from 'components/pagination/Pagination'
-import Searchbar from 'components/searchbar/Searchbar'
-import UsersTable from 'components/users-table/UsersTable'
+import Pagination from 'app/components/pagination/Pagination'
+import Searchbar from 'app/components/searchbar/Searchbar'
+import UsersTable from 'app/components/users-table/UsersTable'
 import { type User } from 'types'
 import { fetchUsers } from 'utils/fetchData'
 import getParams from 'utils/getParams'

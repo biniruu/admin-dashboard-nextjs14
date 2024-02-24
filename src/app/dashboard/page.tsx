@@ -1,7 +1,7 @@
-import Card from '../../components/card/Card'
-import Chart from '../../components/chart/Chart'
-import Rightbar from '../../components/rightbar/Rightbar'
-import Transactions from '../../components/transactions/Transactions'
+import Card from '../components/card/Card'
+import Chart from '../components/chart/Chart'
+import Rightbar from '../components/rightbar/Rightbar'
+import Transactions from '../components/transactions/Transactions'
 
 import styles from './dashboard.module.css'
 

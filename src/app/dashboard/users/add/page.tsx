@@ -2,7 +2,7 @@
 
 import styles from './addUser.module.css'
 
-import { addUser } from 'app/utils/actions'
+import { addUser } from 'utils/actions'
 
 function AddUserPage() {
   return (

@@ -3,9 +3,9 @@ import Image from 'next/image'
 import getProductInputFormData from './productInputFormData'
 import styles from './singleProduct.module.css'
 
-import { updateProduct } from 'app/utils/actions'
-import { fetchProduct } from 'app/utils/fetchData'
 import { type Product } from 'types'
+import { updateProduct } from 'utils/actions'
+import { fetchProduct } from 'utils/fetchData'
 
 interface Params {
   id: string

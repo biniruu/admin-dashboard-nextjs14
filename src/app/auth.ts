@@ -4,8 +4,8 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 import { User } from '../models/userScheme'
+import { connectToDB } from '../utils/connectionsToDB'
 import { authConfig } from './auth.config'
-import { connectToDB } from './utils/connectionsToDB'
 
 interface Credentials {
   username: string

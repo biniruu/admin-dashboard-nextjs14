@@ -1,4 +1,4 @@
-import { type User } from 'app/types'
+import { type User } from 'types'
 
 const getUserInputFormData = (user: User) => {
   const { username, phone, isAdmin, isActive, email, password } = user

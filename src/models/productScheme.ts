@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose'
 
-import { type Product as Products } from 'app/types'
+import { type Product as Products } from 'types'
 
 const productSchema = new Schema<Products>(
   {

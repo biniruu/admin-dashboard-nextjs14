@@ -3,9 +3,9 @@ import Image from 'next/image'
 import styles from './singleUser.module.css'
 import getUserInputFormData from './userInputFormData'
 
-import { type User } from 'app/types'
 import { updateUser } from 'app/utils/actions'
 import { fetchUser } from 'app/utils/fetchData'
+import { type User } from 'types'
 
 interface Params {
   id: string

@@ -2,9 +2,9 @@ import { type Error, type Model, type Types } from 'mongoose'
 
 import { connectToDB } from './connectionsToDB'
 
-import { type Product as Products, type User as Users } from 'app/types'
 import { Product } from 'models/productScheme'
 import { User } from 'models/userScheme'
+import { type Product as Products, type User as Users } from 'types'
 
 const logErrorToConsole = (error: Error) => {
   console.error(error.message)

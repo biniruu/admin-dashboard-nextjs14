@@ -2,8 +2,8 @@ import { type ReactNode } from 'react'
 
 import styles from './dashboard.module.css'
 
-import Navbar from 'app/components/navbar/Navbar'
-import Sidebar from 'app/components/sidebar/Sidebar'
+import Navbar from 'components/navbar/Navbar'
+import Sidebar from 'components/sidebar/Sidebar'
 
 interface Children {
   children: ReactNode

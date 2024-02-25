@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation'
 import { connectToDB } from './connectionsToDB'
 import getHashedPassword from './passwordSecurity'
 
+import { signIn } from 'auth'
 import { Product } from 'models/productScheme'
 import { User } from 'models/userScheme'
 import { type Product as Products, type User as Users } from 'types'
@@ -139,4 +140,14 @@ const deleteUser = async (formData: FormData) => {
   await deleteData(formData, User, userPath)
 }
 
-export { addProduct, addUser, deleteProduct, deleteUser, updateProduct, updateUser }
+const authenticate = async (formData: FormData) => {
+  const { username, password } = Object.fromEntries(formData)
+
+  try {
+    await signIn('credentials', { username, password })
+  } catch (error) {
+    logErrorToConsole(error as Error)
+  }
+}
+
+export { addProduct, addUser, authenticate, deleteProduct, deleteUser, updateProduct, updateUser }

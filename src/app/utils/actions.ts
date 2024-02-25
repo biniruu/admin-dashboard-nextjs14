@@ -7,9 +7,9 @@ import { redirect } from 'next/navigation'
 import { connectToDB } from './connectionsToDB'
 import getHashedPassword from './passwordSecurity'
 
-import { Product } from 'app/models/productScheme'
-import { User } from 'app/models/userScheme'
 import { type Product as Products, type User as Users } from 'app/types'
+import { Product } from 'models/productScheme'
+import { User } from 'models/userScheme'
 
 const userPath = '/dashboard/users'
 const productPath = '/dashboard/products'

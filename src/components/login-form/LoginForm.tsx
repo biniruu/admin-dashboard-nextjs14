@@ -2,14 +2,15 @@
 
 import styles from './loginForm.module.css'
 
+import { authenticate } from 'utils/actions'
+
 function LoginForm() {
   // TODO: convert into useFormState
-  const formAction = () => {}
   const state = ''
 
   return (
     <form
-      action={formAction}
+      action={authenticate}
       className="flex size-[31.25rem] flex-col items-center justify-center gap-[1.875rem] rounded-default bg-bg-soft p-[3.125rem]"
     >
       <h1>login</h1>

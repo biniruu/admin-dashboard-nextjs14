@@ -1,6 +1,6 @@
 'use server'
 
-import { type Error, type Model } from 'mongoose'
+import type { Error, Model } from 'mongoose'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
@@ -10,7 +10,7 @@ import getHashedPassword from './passwordSecurity'
 import { signIn } from 'auth'
 import { Product } from 'models/productScheme'
 import { User } from 'models/userScheme'
-import { type Product as Products, type User as Users } from 'types'
+import type { Product as Products, User as Users } from 'types'
 
 const userPath = '/dashboard/users'
 const productPath = '/dashboard/products'

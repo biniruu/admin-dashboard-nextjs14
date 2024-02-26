@@ -1,8 +1,8 @@
-import { type NextAuthConfig } from 'next-auth'
+import type { NextAuthConfig } from 'next-auth'
 
 const authConfig = {
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
+    async authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard')
 
@@ -10,6 +10,7 @@ const authConfig = {
         return isLoggedIn ? true : false
       }
       if (isLoggedIn) {
+        // FIXME: ensure that redirection is working
         return Response.redirect(new URL('/dashboard', nextUrl))
       }
 

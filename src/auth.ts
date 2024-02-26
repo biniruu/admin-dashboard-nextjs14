@@ -27,14 +27,14 @@ const login = async (credentials: Partial<Record<string, unknown> & Credentials>
     if (!user) {
       console.error('This user is not signed up. Please signing up first.')
 
-      return
+      return null
     }
 
     const isCorrectPassword = await compare(password as string, user.password)
     if (!isCorrectPassword) {
       console.error('The password is incorrect. Please check your password.')
 
-      return
+      return null
     }
 
     return user
@@ -47,12 +47,11 @@ const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     CredentialsProvider({
+      // FIXME: correct a type error
       async authorize(credentials) {
         const user = await login(credentials)
-
-        if (!user) {
-          // TODO: change the error message
-          console.error('Something went wrong.')
+        if (user) {
+          return user
         }
 
         return null

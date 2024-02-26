@@ -1,4 +1,5 @@
-import { connect, type Error } from 'mongoose'
+import type { Error } from 'mongoose'
+import { connect } from 'mongoose'
 
 let isConnected = true
 

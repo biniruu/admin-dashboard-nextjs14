@@ -1,6 +1,6 @@
 import { MdSupervisedUserCircle } from 'react-icons/md'
 
-import { type CardData } from 'types'
+import type { CardData } from 'types'
 
 const cardData: CardData[] = [
   {

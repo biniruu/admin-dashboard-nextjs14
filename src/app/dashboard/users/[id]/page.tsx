@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from './singleUser.module.css'
 import getUserInputFormData from './userInputFormData'
 
-import { type User } from 'types'
+import type { User } from 'types'
 import { updateUser } from 'utils/actions'
 import { fetchUser } from 'utils/fetchData'
 

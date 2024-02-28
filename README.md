@@ -4,6 +4,9 @@ This is for learning Next.js 14 with a server action and more.
 
 ## Development Environment
 
+I used a starter pack to build this dev env:
+[https://github.com/biniruu/starter-pack/tree/main/next-typescript](https://github.com/biniruu/starter-pack/tree/main/next-typescript)
+
 - Next.js 14
 - TypeScript
 - Tailwind CSS (+ PostCSS)

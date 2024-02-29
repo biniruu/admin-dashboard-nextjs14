@@ -51,7 +51,9 @@ const { auth, signIn, signOut } = NextAuth({
       async authorize(credentials) {
         const user = await login(credentials)
         if (user) {
-          return user
+          const { username, email } = user
+
+          return { username, email }
         }
 
         return null

@@ -4,34 +4,19 @@
  */
 
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    // 'stylelint-config-standard-scss',
-  ],
+  extends: ['stylelint-config-standard'],
   overrides: [
-    // {
-    //   /**
-    //    * PostCSS
-    //    *
-    //    * postcss-html : html 또는 html과 유사한 형식을 가진 파일, Vue Single-File Components 등에서 postcss를 사용하도록 지원. scss, less 등을 사용하는 프로젝트에서는 별도 패키지 추가 필요 {@link https://www.npmjs.com/package/postcss-html}
-    //    */
-    //   customSyntax: 'postcss-html',
-    //   files: ['**/*.{html,jsx,tsx}'],
-    // },
     {
       /**
-       * PostCSS for styled-components
+       * PostCSS
        *
-       * postcss-styled-syntax : styled-components 지원 {@link https://styled-components.com/docs/tooling#stylelint}
+       * postcss-html : html 또는 html과 유사한 형식을 가진 파일, Vue Single-File Components 등에서 postcss를 사용하도록 지원. scss, less 등을 사용하는 프로젝트에서는 별도 패키지 추가 필요 {@link https://www.npmjs.com/package/postcss-html}
        */
-      customSyntax: 'postcss-styled-syntax',
+      customSyntax: 'postcss-html',
       files: ['**/*.{html,jsx,tsx}'],
     },
   ],
-  plugins: [
-    // 'stylelint-scss', // scss 사용 시 활성화
-    'stylelint-order',
-  ],
+  plugins: ['stylelint-order'],
   rules: {
     /**
      * Rules
@@ -149,19 +134,6 @@ module.exports = {
       },
     ],
     'value-keyword-case': 'lower',
-    /**
-     * Stylelint-scss rules
-     * {@link https://github.com/stylelint-scss/stylelint-scss#list-of-rules}
-     *
-     * Before enabling SCSS rules, you'll need to disable any conflicting CSS rules.
-     * Here's how to do it.
-     *
-     * "at-rule-no-unknown" : null,
-     * "scss/at-rule-no-unknown" : true,
-     *
-     * scss/at-rule-no-unknown : scss 기본 문법 이외에 다른 @ 문법 사용 시 에러 발생
-     */
-    // 'scss/at-rule-no-unknown': [true, { ignoreAtRules : ['tailwind'] }],
     /**
      * Stylelint-order rules
      * {@link https://github.com/hudochenkov/stylelint-order/tree/master/rules}

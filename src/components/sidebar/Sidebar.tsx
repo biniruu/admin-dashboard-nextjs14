@@ -1,3 +1,4 @@
+import type { Session } from 'next-auth'
 import Image from 'next/image'
 import { MdLogout } from 'react-icons/md'
 
@@ -5,9 +6,24 @@ import MenuLink from '../menu-link/MenuLink'
 
 import menuItems from './menuItems'
 
-import { signOut } from 'auth'
+import { auth, signOut } from 'auth'
+import { initUser } from 'data/initialStates'
+import { AuthUserInfo } from 'types'
+
+const hasSession = (session: Session | null): session is Session => {
+  return session !== null
+}
 
 async function Sidebar() {
+  let user: AuthUserInfo = initUser
+
+  const session = await auth()
+  // avoid possibility of null
+  if (hasSession(session)) {
+    user = session.user
+  }
+
+  const { username, img } = user
 
   const handleSignOut = async () => {
     'use server'
@@ -18,9 +34,9 @@ async function Sidebar() {
   return (
     <div className="sticky top-10">
       <div className="mb-5 flex items-center gap-5">
-        <Image src="/noavatar.png" width={50} height={50} className="rounded-half object-cover" alt="" />
+        <Image src={img || '/noavatar.png'} width={50} height={50} className="rounded-half object-cover" alt="" />
         <div className="flex flex-col">
-          <span className="font-medium">john joe</span>
+          <span className="font-medium">{username}</span>
           <span className="text-xs text-text-soft">administrator</span>
         </div>
       </div>
@@ -40,10 +56,10 @@ async function Sidebar() {
         })}
       </ul>
       <form action={handleSignOut}>
-      <button className="my-[0.3125rem] flex w-full cursor-pointer items-center gap-default rounded-default border-none bg-none p-5 capitalize hover:bg-[#2e374a]">
-        <MdLogout />
-        logout
-      </button>
+        <button className="my-[0.3125rem] flex w-full cursor-pointer items-center gap-default rounded-default border-none bg-none p-5 capitalize hover:bg-[#2e374a]">
+          <MdLogout />
+          logout
+        </button>
       </form>
       <div className="flex w-full items-center"></div>
     </div>

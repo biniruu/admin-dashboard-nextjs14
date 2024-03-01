@@ -45,15 +45,34 @@ const login = async (credentials: Partial<Record<string, unknown> & Credentials>
 
 const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
+  callbacks: {
+    // eslint-disable-next-line @typescript-eslint/require-await
+    async jwt({ token, user }) {
+      if (user) {
+        token.username = user.username
+        token.img = user.img
+      }
+
+      return token
+    },
+    // eslint-disable-next-line @typescript-eslint/require-await
+    async session({ session, token }) {
+      if (token) {
+        session.user.username = token.username as string
+        session.user.img = token.img as string
+      }
+
+      return session
+    },
+  },
   providers: [
     CredentialsProvider({
-      // FIXME: correct a type error
       async authorize(credentials) {
         const user = await login(credentials)
         if (user) {
-          const { username, email } = user
+          const { username, email, img } = user
 
-          return { username, email }
+          return { username, email, img }
         }
 
         return null

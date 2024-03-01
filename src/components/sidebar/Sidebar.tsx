@@ -5,7 +5,16 @@ import MenuLink from '../menu-link/MenuLink'
 
 import menuItems from './menuItems'
 
-function Sidebar() {
+import { signOut } from 'auth'
+
+async function Sidebar() {
+
+  const handleSignOut = async () => {
+    'use server'
+
+    await signOut()
+  }
+
   return (
     <div className="sticky top-10">
       <div className="mb-5 flex items-center gap-5">
@@ -30,10 +39,12 @@ function Sidebar() {
           )
         })}
       </ul>
+      <form action={handleSignOut}>
       <button className="my-[0.3125rem] flex w-full cursor-pointer items-center gap-default rounded-default border-none bg-none p-5 capitalize hover:bg-[#2e374a]">
         <MdLogout />
         logout
       </button>
+      </form>
       <div className="flex w-full items-center"></div>
     </div>
   )

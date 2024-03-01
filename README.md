@@ -7,16 +7,18 @@ This is for learning Next.js 14 with a server action and more.
 I used a starter pack to build this dev env:
 [https://github.com/biniruu/starter-pack/tree/main/next-typescript](https://github.com/biniruu/starter-pack/tree/main/next-typescript)
 
-- Next.js 14
+## Most Important Dependencies
+
+- Next.js v14
 - TypeScript
 - Tailwind CSS (+ PostCSS)
-- NextAuth.js
+- NextAuth.js v5 (beta)
 - MongoDB
 - Mongoose
 
 ## Todo
 
-- [x] Build dev env
+- [x] Build development environment
 - [x] Build Dashboard
 - [x] Build Users page
 - [x] Build Products page

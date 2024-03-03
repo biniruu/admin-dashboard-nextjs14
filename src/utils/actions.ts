@@ -1,7 +1,10 @@
 'use server'
 
-import type { Error, Model } from 'mongoose'
+import type { Error } from 'mongoose'
+import { Model } from 'mongoose'
+import type { AuthError } from 'next-auth'
 import { revalidatePath } from 'next/cache'
+import { isRedirectError } from 'next/dist/client/components/redirect'
 import { redirect } from 'next/navigation'
 
 import { connectToDB } from './connectionsToDB'
@@ -140,14 +143,23 @@ const deleteUser = async (formData: FormData) => {
   await deleteData(formData, User, userPath)
 }
 
-const authenticate = async (formData: FormData) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const authenticate = async (prevState: string | undefined, formData: FormData) => {
   const { username, password } = Object.fromEntries(formData)
 
   try {
     await signIn('credentials', { username, password })
   } catch (error) {
-    logErrorToConsole(error as Error)
-    return { errMsg: 'Please check your username or password.' }
+    const err = error as AuthError
+    // Redirect to dashboard since a NEXT_REDIRECT error always occurs and interrupts the redirection process after login
+    if (isRedirectError(error)) {
+      redirect('/dashboard')
+    }
+    // TODO: Make sure to distinguish between errors in a username and those in a password.
+    if (err.type === 'CredentialsSignin') {
+      return 'Please check your username or password.'
+    }
+    return 'Something went wrong. Please contact customer support.'
   }
 }
 

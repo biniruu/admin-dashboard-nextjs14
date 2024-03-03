@@ -147,6 +147,7 @@ const authenticate = async (formData: FormData) => {
     await signIn('credentials', { username, password })
   } catch (error) {
     logErrorToConsole(error as Error)
+    return { errMsg: 'Please check your username or password.' }
   }
 }
 

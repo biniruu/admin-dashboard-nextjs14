@@ -10,7 +10,6 @@ const authConfig = {
         return isLoggedIn ? true : false
       }
       if (isLoggedIn) {
-        // FIXME: ensure that redirection is working
         return Response.redirect(new URL('/dashboard', nextUrl))
       }
 

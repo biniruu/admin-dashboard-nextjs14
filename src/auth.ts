@@ -29,11 +29,8 @@ const login = async (credentials: Partial<Record<string, unknown> & Credentials>
     }
 
     const isCorrectPassword = await compare(password as string, user.password)
-    if (!isCorrectPassword) {
-      return null
-    }
 
-    return user
+    return isCorrectPassword ? user : null
   } catch (error) {
     console.error(error)
   }

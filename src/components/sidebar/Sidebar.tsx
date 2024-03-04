@@ -13,17 +13,12 @@ const hasSession = (session: Session | null): session is Session => {
   return session !== null
 }
 
-const initUser = { username: '', email: '' }
+const initUser = { username: 'Anonymous', email: '' }
 
 async function Sidebar() {
-  let user: AuthUserInfo = initUser
-
   const session = await auth()
-  // avoid possibility of null
-  if (hasSession(session)) {
-    user = session.user
-  }
-
+  // avoid possibility of null since 'session' might be null
+  const user: AuthUserInfo = hasSession(session) ? session.user : initUser
   const { username, img } = user
 
   const handleSignOut = async () => {

@@ -7,12 +7,13 @@ import MenuLink from '../menu-link/MenuLink'
 import menuItems from './menuItems'
 
 import { auth, signOut } from 'auth'
-import { initUser } from 'data/initialStates'
 import { AuthUserInfo } from 'types'
 
 const hasSession = (session: Session | null): session is Session => {
   return session !== null
 }
+
+const initUser = { username: '', email: '' }
 
 async function Sidebar() {
   let user: AuthUserInfo = initUser

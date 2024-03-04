@@ -15,15 +15,8 @@ function Searchbar({ placeholder }: Props) {
 
   const handleSearch = debounce((e: ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams)
-
     params.set('page', '1')
-
-    if (e.target.value) {
-      params.set('search', e.target.value)
-    } else {
-      params.delete('search')
-    }
-
+    e.target.value ? params.set('search', e.target.value) : params.delete('search')
     replace(`${pathname}?${params.toString()}`)
   })
 

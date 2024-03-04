@@ -18,10 +18,10 @@ interface FetchProducts {
 
 async function ProductsPage({ searchParams }: Props) {
   // TODO: make sure the 'page' parameter is visible as soon as the page opens
-  const { searchKeywords, pageNumber } = getParams(searchParams)
+  const { searchKeywords, currentPage } = getParams(searchParams)
   const ITEM_PER_PAGE = 2
 
-  const { products, totalProducts } = (await fetchProducts(searchKeywords, pageNumber)) as FetchProducts
+  const { products, totalProducts } = (await fetchProducts(searchKeywords, currentPage)) as FetchProducts
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
@@ -34,7 +34,7 @@ async function ProductsPage({ searchParams }: Props) {
         </Link>
       </div>
       <ProductsTable products={products} />
-      <Pagination total={totalProducts} itemPerPage={ITEM_PER_PAGE} pageNumber={pageNumber} />
+      <Pagination total={totalProducts} itemPerPage={ITEM_PER_PAGE} currentPage={currentPage} />
     </div>
   )
 }

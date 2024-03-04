@@ -57,7 +57,7 @@ const fetchData = async (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
   dataType: Model<any, {}, {}, {}, any, any>,
   field: string,
-  pageNumber: number,
+  currentPage: number,
   regex: RegExp,
 ) => {
   const ITEM_PER_PAGE = 2
@@ -65,7 +65,7 @@ const fetchData = async (
     .find({ [field]: { $regex: regex } })
     .lean()
     .limit(ITEM_PER_PAGE)
-    .skip(ITEM_PER_PAGE * (pageNumber - 1))) as FetchUser[] | FetchProduct[]
+    .skip(ITEM_PER_PAGE * (currentPage - 1))) as FetchUser[] | FetchProduct[]
 
   // need an 'id' property instead of an '_id'
   const newData = convertId(data)
@@ -73,13 +73,13 @@ const fetchData = async (
   return newData
 }
 
-const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
+const fetchProducts = async (searchKeywords: string, currentPage: number) => {
   const regex = new RegExp(searchKeywords, 'i')
 
   try {
     await connectToDB()
 
-    const products = (await fetchData(Product, 'title', pageNumber, regex)) as Products[]
+    const products = (await fetchData(Product, 'title', currentPage, regex)) as Products[]
     const totalProducts = await Product.find({ title: { $regex: regex } }).countDocuments()
 
     return { products, totalProducts }
@@ -88,13 +88,13 @@ const fetchProducts = async (searchKeywords: string, pageNumber: number) => {
   }
 }
 
-const fetchUsers = async (searchKeywords: string, pageNumber: number) => {
+const fetchUsers = async (searchKeywords: string, currentPage: number) => {
   const regex = new RegExp(searchKeywords, 'i')
 
   try {
     await connectToDB()
 
-    const users = (await fetchData(User, 'username', pageNumber, regex)) as Users[]
+    const users = (await fetchData(User, 'username', currentPage, regex)) as Users[]
     const totalUsers = await User.find({ username: { $regex: regex } }).countDocuments()
 
     return { users, totalUsers }

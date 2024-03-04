@@ -18,10 +18,10 @@ interface FetchUsers {
 
 async function UsersPage({ searchParams }: Props) {
   // TODO: make sure the 'page' parameter is visible as soon as the page opens
-  const { searchKeywords, pageNumber } = getParams(searchParams)
+  const { searchKeywords, currentPage } = getParams(searchParams)
   const ITEM_PER_PAGE = 2
 
-  const { users, totalUsers } = (await fetchUsers(searchKeywords, pageNumber)) as FetchUsers
+  const { users, totalUsers } = (await fetchUsers(searchKeywords, currentPage)) as FetchUsers
 
   return (
     <div className="mt-5 rounded-default bg-bg-soft p-5">
@@ -38,7 +38,7 @@ async function UsersPage({ searchParams }: Props) {
       ) : (
         <p className="mb-5 mt-14 flex justify-center lowercase ">user data not found.</p>
       )}
-      <Pagination total={totalUsers} itemPerPage={ITEM_PER_PAGE} pageNumber={pageNumber} />
+      <Pagination total={totalUsers} itemPerPage={ITEM_PER_PAGE} currentPage={currentPage} />
     </div>
   )
 }

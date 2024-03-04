@@ -4,10 +4,9 @@ interface Props {
 
 const getParams = (searchParams: Props) => {
   const searchKeywords = searchParams?.search || ''
-  const currentPage = searchParams?.page || '1'
-  const pageNumber = Number(currentPage)
+  const currentPage = Number(searchParams?.page || '1')
 
-  return { searchKeywords, pageNumber }
+  return { searchKeywords, currentPage }
 }
 
 export default getParams

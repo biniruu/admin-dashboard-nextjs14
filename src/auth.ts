@@ -25,15 +25,11 @@ const login = async (credentials: Partial<Record<string, unknown> & Credentials>
 
     const user = (await User.findOne({ username })) as LoggedUser
     if (!user) {
-      console.error('This user is not signed up. Please signing up first.')
-
       return null
     }
 
     const isCorrectPassword = await compare(password as string, user.password)
     if (!isCorrectPassword) {
-      console.error('The password is incorrect. Please check your password.')
-
       return null
     }
 

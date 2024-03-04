@@ -47,10 +47,10 @@ const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/require-await
-    async jwt({ token, user }) {
-      if (user) {
-        token.username = user.username
-        token.img = user.img
+    async jwt({ token, account }) {
+      if (account) {
+        token.username = account.username
+        token.img = account.img
       }
 
       return token

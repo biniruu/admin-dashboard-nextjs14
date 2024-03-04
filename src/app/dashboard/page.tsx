@@ -1,6 +1,6 @@
 import Card from '../../components/card/Card'
 import Chart from '../../components/chart/Chart'
-import Rightbar from '../../components/rightbar/Rightbar'
+import RightSidebar from '../../components/right-sidebar/RightSidebar'
 import Transactions from '../../components/transactions/Transactions'
 
 import cardData from './cardData'
@@ -20,7 +20,7 @@ function Dashboard() {
         <Chart />
       </div>
       <div className={styles.side}>
-        <Rightbar />
+        <RightSidebar />
       </div>
     </div>
   )

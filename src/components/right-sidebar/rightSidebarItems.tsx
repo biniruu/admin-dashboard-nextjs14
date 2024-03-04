@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { MdPlayCircleFilled, MdReadMore } from 'react-icons/md'
 
-interface RightbarItem {
+interface RightSidebarItem {
   notification: string
   title: string
   subtitle: string
@@ -10,7 +10,7 @@ interface RightbarItem {
   button: string
 }
 
-const rightbarItems: RightbarItem[] = [
+const rightSidebarItems: RightSidebarItem[] = [
   {
     notification: '🔥 available now',
     title: 'how to use the new version of the admin dashboard?',
@@ -29,4 +29,4 @@ const rightbarItems: RightbarItem[] = [
   },
 ]
 
-export default rightbarItems
+export default rightSidebarItems

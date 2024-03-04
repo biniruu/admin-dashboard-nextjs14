@@ -1,12 +1,12 @@
 import Image from 'next/image'
 
-import styles from './rightbar.module.css'
-import rightbarItems from './rightbarItems'
+import styles from './rightSidebar.module.css'
+import rightSidebarItems from './rightSidebarItems'
 
-function Rightbar() {
+function RightSidebar() {
   return (
     <div className="fixed">
-      {rightbarItems.map(item => {
+      {rightSidebarItems.map(item => {
         const { notification, title, subtitle, desc, buttonIcon, button } = item
 
         return (
@@ -33,4 +33,4 @@ function Rightbar() {
   )
 }
 
-export default Rightbar
+export default RightSidebar

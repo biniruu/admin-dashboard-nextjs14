@@ -40,6 +40,7 @@ type FetchProduct = FetchData<Products>
 
 // remove an '_id' property then add an 'id' one that has a string type
 const convertId = (data: FetchUser[] | FetchProduct[]) => {
+  // TODO: convert from map to reduce
   const newData = data.map(item => {
     const id = item['_id']?.toString()
     delete item['_id' as keyof typeof item]

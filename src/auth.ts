@@ -24,13 +24,9 @@ const login = async (credentials: Partial<Record<string, unknown> & Credentials>
     await connectToDB()
 
     const user = (await User.findOne({ username })) as LoggedUser
-    if (!user) {
-      return null
-    }
-
     const isCorrectPassword = await compare(password as string, user.password)
 
-    return isCorrectPassword ? user : null
+    return user && isCorrectPassword ? user : null
   } catch (error) {
     console.error(error)
   }

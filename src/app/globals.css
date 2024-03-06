@@ -27,3 +27,7 @@ a {
     text-transform: capitalize;
   }
 }
+
+button {
+  text-transform: capitalize;
+}

@@ -12,11 +12,12 @@ function Navbar() {
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-1 rounded-default bg-[#2e374a] p-[0.625rem]">
           <MdSearch />
+          {/* TODO: Make sure it can be working. */}
           <input
             type="text"
             name="search"
             id="search"
-            placeholder="Search..."
+            placeholder="Search... (not yet working)"
             className="border-none bg-transparent text-text"
           />
         </div>

@@ -18,7 +18,7 @@ function LoginForm() {
       <input type="text" placeholder="username" name="username" className={styles.input} />
       <input type="password" placeholder="password" name="password" className={styles.input} />
       <button className="w-full cursor-pointer border-none bg-teal-500 p-6 capitalize text-text">login</button>
-      {state && <div className="lowercase first-letter:capitalize">{state}</div>}
+      {state && <div className="first-letter-capital">{state}</div>}
     </form>
   )
 }

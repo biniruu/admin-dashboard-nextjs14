@@ -44,7 +44,7 @@ function UsersTable({ users }: Props) {
                   {username}
                 </div>
               </td>
-              <td>{email}</td>
+              <td className="normal-case">{email}</td>
               <td>{date || ''}</td>
               <td>{isAdmin ? 'admin' : 'user'}</td>
               <td>{isActive ? 'active' : 'passive'}</td>

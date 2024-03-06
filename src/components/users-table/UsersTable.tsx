@@ -48,14 +48,16 @@ function UsersTable({ users }: Props) {
               <td>{date || ''}</td>
               <td>{isAdmin ? 'admin' : 'user'}</td>
               <td>{isActive ? 'active' : 'passive'}</td>
-              <td className="flex gap-default">
-                <Link href={`/dashboard/users/${id}`}>
-                  <button className={`${styles.button} bg-[teal]`}>view</button>
-                </Link>
-                <form action={deleteUser}>
-                  <input type="hidden" name="id" value={id} />
-                  <button className={`${styles.button} bg-[crimson]`}>delete</button>
-                </form>
+              <td>
+                <div className="flex gap-default">
+                  <Link href={`/dashboard/users/${id}`}>
+                    <button className={`${styles.button} bg-[teal]`}>view</button>
+                  </Link>
+                  <form action={deleteUser}>
+                    <input type="hidden" name="id" value={id} />
+                    <button className={`${styles.button} bg-[crimson]`}>delete</button>
+                  </form>
+                </div>
               </td>
             </tr>
           )

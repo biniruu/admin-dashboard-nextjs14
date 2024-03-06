@@ -1,8 +1,15 @@
 import Image from 'next/image'
 
+import transactionItems from './transactionItems'
 import styles from './transactions.module.css'
 
 const tableHead: string[] = ['name', 'status', 'date', 'amount']
+
+const bgColor = {
+  pending: 'bg-[#f7cb7375]',
+  done: 'bg-[#afd6ee75]',
+  cancelled: 'bg-[#f7737375]',
+}
 
 function Transactions() {
   return (
@@ -17,39 +24,33 @@ function Transactions() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
-              john doe
-            </td>
-            <td>
-              <span className={`${styles.status} bg-[#f7cb7375]`}>pending</span>
-            </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
-              john doe
-            </td>
-            <td>
-              <span className={`${styles.status} bg-[#afd6ee75]`}>done</span>
-            </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <Image src="/noavatar.png" alt="" width={40} height={40} className={styles['user-image']} />
-              john doe
-            </td>
-            <td>
-              <span className={`${styles.status} bg-[#f7737375]`}>cancelled</span>
-            </td>
-            <td>14.02.2024</td>
-            <td>$3.200</td>
-          </tr>
+          {/* TODO: Update this when getting data from DB is enabled */}
+          {transactionItems.map(item => {
+            const { img, name, status, date, price } = item
+            const bg = bgColor[status as keyof typeof bgColor]
+
+            return (
+              <tr key={`${name}${status}`}>
+                <td>
+                  <div className="flex items-center">
+                    <Image
+                      src={img || '/noavatar.png'}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className={`${styles['user-image']} mr-4`}
+                    />
+                    {name}
+                  </div>
+                </td>
+                <td>
+                  <span className={`${styles.status} ${bg}`}>{status}</span>
+                </td>
+                <td>{date}</td>
+                <td>${price}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>

@@ -1,6 +1,11 @@
+'use client'
+
 import type { ReactNode } from 'react'
 import { MdPlayCircleFilled, MdReadMore } from 'react-icons/md'
 
+import tempAlert from 'utils/tempAlert'
+
+// TODO: Remove clickEvent when empty page has its own page
 interface RightSidebarItem {
   notification: string
   title: string
@@ -8,6 +13,7 @@ interface RightSidebarItem {
   desc: string
   buttonIcon: ReactNode
   button: string
+  clickEvent: (text: string) => void
 }
 
 const rightSidebarItems: RightSidebarItem[] = [
@@ -18,6 +24,7 @@ const rightSidebarItems: RightSidebarItem[] = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ex nemo doloribus temporibus quod excepturi, eius magni inventore ratione expedita reprehenderit. Fugit tenetur corrupti laudantium minus. Commodi quibusdam corrupti non!',
     buttonIcon: <MdPlayCircleFilled />,
     button: 'watch',
+    clickEvent: tempAlert,
   },
   {
     notification: '🚀 coming soon',
@@ -26,6 +33,7 @@ const rightSidebarItems: RightSidebarItem[] = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eius libero perspiciatis recusandae possimus.',
     buttonIcon: <MdReadMore />,
     button: 'learn',
+    clickEvent: tempAlert,
   },
 ]
 

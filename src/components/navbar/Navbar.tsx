@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation'
 import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/md'
 
+import tempAlert from 'utils/tempAlert'
+
 function Navbar() {
   const pathname = usePathname()
 
@@ -22,9 +24,9 @@ function Navbar() {
           />
         </div>
         <div className="flex gap-5">
-          <MdOutlineChat size={20} />
-          <MdNotifications size={20} />
-          <MdPublic size={20} />
+          <MdOutlineChat size={20} onClick={() => tempAlert('Nothing to do.')} />
+          <MdNotifications size={20} onClick={() => tempAlert('Nothing to do.')} />
+          <MdPublic size={20} onClick={() => tempAlert('Nothing to do.')} />
         </div>
       </div>
     </div>

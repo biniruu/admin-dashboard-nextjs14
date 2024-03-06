@@ -18,10 +18,10 @@ function RightSidebar() {
             )}
             <div className="flex flex-col gap-6">
               <div className="font-bold">{notification}</div>
-              <h3 className={styles.title}>{title}</h3>
-              <div className="text-xs font-medium text-text-soft">{subtitle}</div>
+              <h3 className={`${styles.title} first-letter-capital`}>{title}</h3>
+              <div className="first-letter-capital text-xs font-medium text-text-soft">{subtitle}</div>
               <p className="text-sm text-text-soft">{desc}</p>
-              <button className="flex w-max cursor-pointer items-center gap-default rounded-[0.3125rem] border-0 bg-[#5d57c9] p-default text-white">
+              <button className="flex w-max cursor-pointer items-center gap-default rounded-[0.3125rem] border-0 bg-[#5d57c9] p-default capitalize text-white">
                 {buttonIcon}
                 {button}
               </button>

@@ -11,10 +11,13 @@ import {
   MdWork,
 } from 'react-icons/md'
 
+import tempAlert from 'utils/tempAlert'
+
 interface Menu {
   title: string
   path: string
   icon: ReactNode
+  clickEvent?: (text: string) => void
 }
 
 interface MenuItem {
@@ -22,6 +25,7 @@ interface MenuItem {
   list: Menu[]
 }
 
+// TODO: Remove clickEvent when all menus are having their own pages
 const menuItems: MenuItem[] = [
   {
     title: 'pages',
@@ -44,6 +48,7 @@ const menuItems: MenuItem[] = [
       {
         title: 'transactions',
         path: '/dashboard/transactions',
+        clickEvent: tempAlert,
         icon: <MdAttachMoney />,
       },
     ],
@@ -54,16 +59,19 @@ const menuItems: MenuItem[] = [
       {
         title: 'revenue',
         path: '/dashboard/revenue',
+        clickEvent: tempAlert,
         icon: <MdWork />,
       },
       {
         title: 'reports',
         path: '/dashboard/reports',
+        clickEvent: tempAlert,
         icon: <MdAnalytics />,
       },
       {
         title: 'teams',
         path: '/dashboard/teams',
+        clickEvent: tempAlert,
         icon: <MdPeople />,
       },
     ],
@@ -74,11 +82,13 @@ const menuItems: MenuItem[] = [
       {
         title: 'settings',
         path: '/dashboard/settings',
+        clickEvent: tempAlert,
         icon: <MdOutlineSettings />,
       },
       {
         title: 'help',
         path: '/dashboard/help',
+        clickEvent: tempAlert,
         icon: <MdHelpCenter />,
       },
     ],

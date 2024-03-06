@@ -14,7 +14,7 @@ function Card({ data }: Props) {
         <div>{title}</div>
         <div className="text-2xl font-medium">{number}</div>
         <div className="text-sm font-light">
-          <span className={`${state === 'positive' ? 'text-lime' : 'text-red'}`}>{rate}%</span>
+          <span className={`${state === 'positive' ? 'text-lime' : 'text-red'} pr-2`}>{rate}%</span>
           {detail}
         </div>
       </div>

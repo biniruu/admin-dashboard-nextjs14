@@ -22,7 +22,7 @@ I used a starter pack to build this dev env:
 - [x] Build Dashboard
 - [x] Build Users page
 - [x] Build Products page
-- [ ] Authentication
+- [x] Authentication
 
 ## Notice
 

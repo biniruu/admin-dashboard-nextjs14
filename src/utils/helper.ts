@@ -31,4 +31,28 @@ const convertId = (data: FetchUser[] | FetchProduct[]) => {
   return newData
 }
 
-export { convertId, getParams }
+// eslint-disable-next-line no-underscore-dangle
+const _keysWithValue = (fields: User | Product) => {
+  const newFields = { ...fields }
+  // An 'id' field must be deleted since there is no 'id' field in DB
+  delete newFields['id' as keyof typeof newFields]
+  Object.keys(newFields).forEach(field => {
+    const hasValue = newFields[field as keyof typeof newFields] !== '' || undefined
+    if (!hasValue) {
+      delete newFields[field as keyof typeof newFields]
+    }
+  })
+
+  return newFields
+}
+
+const getFilteredFields = (formData: FormData) => {
+  const fields = Object.fromEntries(formData) as unknown as User | Product
+  const { id } = fields
+  // An 'id' field is removed from filteredFields
+  const filteredFields = _keysWithValue(fields)
+
+  return { id, filteredFields }
+}
+
+export { convertId, getFilteredFields, getParams }

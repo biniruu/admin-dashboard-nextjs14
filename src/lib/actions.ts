@@ -14,6 +14,7 @@ import { signIn } from 'auth'
 import { Product } from 'models/productScheme'
 import { User } from 'models/userScheme'
 import type { Product as Products, User as Users } from 'types'
+import { getFilteredFields } from 'utils/helper'
 
 const userPath = '/dashboard/users'
 const productPath = '/dashboard/products'
@@ -70,33 +71,13 @@ const addProduct = async (formData: FormData) => {
   redirect(productPath)
 }
 
-const getUpdateFields = (formData: FormData) => {
-  const fields = Object.fromEntries(formData) as unknown as Users | Products
-  const { id } = fields
-  // 'id' must be deleted. There are no 'id' fields in DB.
-  delete fields['id' as keyof typeof fields]
-  Object.keys(fields).forEach(key => {
-    const hasValue = fields[key as keyof typeof fields] !== '' || undefined
-    if (!hasValue) {
-      delete fields[key as keyof typeof fields]
-    }
-  })
-
-  return { id, fields }
-}
-
-interface Fields<T> {
-  id: string
-  fields: T
-}
-
 const updateUser = async (formData: FormData) => {
   try {
     await connectToDB()
 
-    const { id, fields } = getUpdateFields(formData) as Fields<Users>
+    const { id, filteredFields } = getFilteredFields(formData)
 
-    await User.findByIdAndUpdate(id, fields)
+    await User.findByIdAndUpdate(id, filteredFields)
   } catch (error) {
     logErrorToConsole(error as Error)
   }
@@ -109,9 +90,9 @@ const updateProduct = async (formData: FormData) => {
   try {
     await connectToDB()
 
-    const { id, fields } = getUpdateFields(formData) as Fields<Products>
+    const { id, filteredFields } = getFilteredFields(formData)
 
-    await Product.findByIdAndUpdate(id, fields)
+    await Product.findByIdAndUpdate(id, filteredFields)
   } catch (error) {
     logErrorToConsole(error as Error)
   }

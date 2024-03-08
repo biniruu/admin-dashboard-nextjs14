@@ -7,8 +7,8 @@ import { revalidatePath } from 'next/cache'
 import { isRedirectError } from 'next/dist/client/components/redirect'
 import { redirect } from 'next/navigation'
 
-import { connectToDB } from '../../utils/connectionsToDB'
 import getHashedPassword from '../../utils/passwordSecurity'
+import { connectToDB } from './connectionsToDB'
 
 import { signIn } from 'auth'
 import { Product } from 'models/productScheme'

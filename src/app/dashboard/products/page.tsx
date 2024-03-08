@@ -5,7 +5,7 @@ import Pagination from 'components/pagination/Pagination'
 import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
 import type { Product } from 'types'
-import getParams from 'utils/getParams'
+import { getParams } from 'utils/helper'
 
 interface Props {
   searchParams: { [key: string]: string | undefined }

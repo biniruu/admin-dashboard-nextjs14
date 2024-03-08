@@ -9,4 +9,4 @@ const getParams = (searchParams: Props) => {
   return { searchKeywords, currentPage }
 }
 
-export default getParams
+export { getParams }

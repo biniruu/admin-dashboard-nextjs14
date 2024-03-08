@@ -5,7 +5,7 @@ import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
 import UsersTable from 'components/users-table/UsersTable'
 import type { User } from 'types'
-import getParams from 'utils/getParams'
+import { getParams } from 'utils/helper'
 
 interface Props {
   searchParams: { [key: string]: string | undefined }

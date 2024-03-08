@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
+import { fetchUsers } from 'app/lib/fetchData'
 import Pagination from 'components/pagination/Pagination'
 import Searchbar from 'components/searchbar/Searchbar'
 import UsersTable from 'components/users-table/UsersTable'
 import type { User } from 'types'
-import { fetchUsers } from 'utils/fetchData'
 import getParams from 'utils/getParams'
 
 interface Props {

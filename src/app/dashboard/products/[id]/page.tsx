@@ -4,8 +4,8 @@ import getProductInputFormData from './productInputFormData'
 import styles from './singleProduct.module.css'
 
 import { updateProduct } from 'app/lib/actions'
+import { fetchProduct } from 'app/lib/fetchData'
 import type { Product } from 'types'
-import { fetchProduct } from 'utils/fetchData'
 
 interface Params {
   id: string

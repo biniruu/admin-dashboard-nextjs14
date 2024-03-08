@@ -4,8 +4,8 @@ import styles from './singleUser.module.css'
 import getUserInputFormData from './userInputFormData'
 
 import { updateUser } from 'app/lib/actions'
+import { fetchUser } from 'app/lib/fetchData'
 import type { User } from 'types'
-import { fetchUser } from 'utils/fetchData'
 
 interface Params {
   id: string

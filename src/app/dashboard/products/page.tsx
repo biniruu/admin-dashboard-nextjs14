@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
+import { fetchProducts } from 'app/lib/fetchData'
 import Pagination from 'components/pagination/Pagination'
 import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
 import type { Product } from 'types'
-import { fetchProducts } from 'utils/fetchData'
 import getParams from 'utils/getParams'
 
 interface Props {

@@ -1,6 +1,6 @@
 import type { Error, Model, Types } from 'mongoose'
 
-import { connectToDB } from '../app/lib/connectionsToDB'
+import { connectToDB } from './connectionsToDB'
 
 import { Product } from 'models/productScheme'
 import { User } from 'models/userScheme'

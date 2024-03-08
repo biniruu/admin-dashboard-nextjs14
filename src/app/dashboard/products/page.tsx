@@ -29,7 +29,7 @@ async function ProductsPage({ searchParams }: Props) {
         <Searchbar placeholder="Search for a product..." />
         <Link href="/dashboard/products/add">
           <button className="cursor-pointer rounded-[0.3125rem] border-none bg-[#5d57c9] p-default text-text">
-            Add New
+            add new
           </button>
         </Link>
       </div>

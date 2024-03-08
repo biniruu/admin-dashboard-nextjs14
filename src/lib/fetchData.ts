@@ -1,10 +1,12 @@
-import type { Error, Model, Types } from 'mongoose'
+import type { Error, Model } from 'mongoose'
 
 import { connectToDB } from './connectionsToDB'
 
 import { Product } from 'models/productScheme'
 import { User } from 'models/userScheme'
 import type { Product as Products, User as Users } from 'types'
+import type { FetchProduct, FetchUser } from 'utils/helper'
+import { convertId } from 'utils/helper'
 
 const logErrorToConsole = (error: Error) => {
   console.error(error.message)
@@ -34,24 +36,6 @@ const fetchProduct = async (id: string) => {
   }
 }
 
-type FetchData<T> = Omit<T, 'id'> & { _id: Types.ObjectId }
-type FetchUser = FetchData<Users>
-type FetchProduct = FetchData<Products>
-
-// remove an '_id' property then add an 'id' one that has a string type
-const convertId = (data: FetchUser[] | FetchProduct[]) => {
-  // TODO: convert from map to reduce
-  const newData = data.map(item => {
-    const id = item['_id']?.toString()
-    delete item['_id' as keyof typeof item]
-    const newItem = { ...item, id } as Users | Products
-
-    return newItem
-  })
-
-  return newData
-}
-
 // fetching documents from DB
 const fetchData = async (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
@@ -67,7 +51,7 @@ const fetchData = async (
     .limit(ITEM_PER_PAGE)
     .skip(ITEM_PER_PAGE * (currentPage - 1))) as FetchUser[] | FetchProduct[]
 
-  // need an 'id' property instead of an '_id'
+  // change and use an 'id' property instead of an '_id'
   const newData = convertId(data)
 
   return newData

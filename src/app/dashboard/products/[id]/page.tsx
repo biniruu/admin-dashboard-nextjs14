@@ -3,8 +3,8 @@ import Image from 'next/image'
 import getProductInputFormData from './productInputFormData'
 import styles from './singleProduct.module.css'
 
-import { updateProduct } from 'app/lib/actions'
-import { fetchProduct } from 'app/lib/fetchData'
+import { updateProduct } from 'lib/actions'
+import { fetchProduct } from 'lib/fetchData'
 import type { Product } from 'types'
 
 interface Params {

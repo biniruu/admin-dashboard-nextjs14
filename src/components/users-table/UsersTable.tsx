@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 import styles from './usersTable.module.css'
 
-import { deleteUser } from 'app/lib/actions'
+import { deleteUser } from 'lib/actions'
 import type { User } from 'types'
 
 const tableHead: string[] = ['name', 'email', 'created at', 'role', 'status', 'action']

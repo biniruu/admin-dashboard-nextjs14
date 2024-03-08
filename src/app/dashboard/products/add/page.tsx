@@ -2,7 +2,7 @@
 
 import styles from './addProduct.module.css'
 
-import { addProduct } from 'app/lib/actions'
+import { addProduct } from 'lib/actions'
 
 function AddProductPage() {
   return (

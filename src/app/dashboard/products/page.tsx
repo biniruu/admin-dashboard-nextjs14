@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-import { fetchProducts } from 'app/lib/fetchData'
 import Pagination from 'components/pagination/Pagination'
 import ProductsTable from 'components/products-table/ProductsTable'
 import Searchbar from 'components/searchbar/Searchbar'
+import { fetchProducts } from 'lib/fetchData'
 import type { Product } from 'types'
 import { getParams } from 'utils/helper'
 

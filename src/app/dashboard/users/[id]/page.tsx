@@ -3,8 +3,8 @@ import Image from 'next/image'
 import styles from './singleUser.module.css'
 import getUserInputFormData from './userInputFormData'
 
+import { updateUser } from 'app/lib/actions'
 import type { User } from 'types'
-import { updateUser } from 'utils/actions'
 import { fetchUser } from 'utils/fetchData'
 
 interface Params {

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prod-build": "yarn lint && yarn build"
+    "prod-build": "yarn lint && yarn build",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

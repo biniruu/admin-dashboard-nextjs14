@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true
+  },
+  "extends": "./tsconfig.default.json",
+  "files": ["./src/main.ts"]
+}

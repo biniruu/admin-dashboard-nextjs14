@@ -49,7 +49,7 @@ const _keysWithValue = (fields: User | Product) => {
 const getFilteredFields = (formData: FormData) => {
   const fields = Object.fromEntries(formData) as unknown as User | Product
   const { id } = fields
-  // An 'id' field is removed from filteredFields
+  // An 'id' field is removed from fields
   const filteredFields = _keysWithValue(fields)
 
   return { id, filteredFields }

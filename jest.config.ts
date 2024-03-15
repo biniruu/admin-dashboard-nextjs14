@@ -106,7 +106,8 @@ const jestConfig: JestConfigWithTsJest = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '@/(.*)': '<rootDir>/src/$1',
+    '@app/(.*)': '<rootDir>/app/$1',
+    '@utils/(.*)': '<rootDir>/utils/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -119,7 +120,7 @@ const jestConfig: JestConfigWithTsJest = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -140,7 +141,7 @@ const jestConfig: JestConfigWithTsJest = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined,
+  rootDir: './src',
 
   // A list of paths to directories that Jest should use to search for files in
   roots: ['<rootDir>/tests'],

@@ -40,13 +40,28 @@ module.exports = {
   overrides: [
     {
       /**
+       * Jest
+       *
+       * plugin:jest/recommended : eslint-plugin-jest 추천 rule set
+       */
+      extends: ['plugin:jest/recommended'],
+      files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
+      rules: {
+        /**
+         * Rules
+         * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
+         */
+      },
+    },
+    {
+      /**
        * Specifying TSConfigs
        * {@link https://typescript-eslint.io/linting/typed-linting/#specifying-tsconfigs}
        *
        * plugin:@typescript-eslint/disable-type-checked : turn off type-aware linting on specific subsets of files with a disabled-type-checked config {@link https://typescript-eslint.io/linting/typed-linting/#how-can-i-disable-type-aware-linting-for-a-subset-of-files}
        */
       extends: ['plugin:@typescript-eslint/disable-type-checked'],
-      files: ['*.js', '*.cjs', '*.config.ts'],
+      files: ['*.js', '*.cjs', '*.config.js', '*.config.ts', '*.test.js', '*.test.ts', '*.spec.js', '*.spec.ts'],
     },
   ],
   parser: '@typescript-eslint/parser',
@@ -359,6 +374,15 @@ module.exports = {
       node: {
         extensions: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       },
+    },
+    /**
+     * Jest version setting
+     * {@link https://github.com/jest-community/eslint-plugin-jest#jest-version-setting}
+     *
+     * fetch the installed version of Jest
+     */
+    jest: {
+      version: require('jest/package.json').version,
     },
     /**
      * Eslint-plugin-react configuration

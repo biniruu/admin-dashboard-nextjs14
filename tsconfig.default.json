@@ -3,7 +3,7 @@
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
-    // "incremental": true, // Save .tsbuildinfo files to allow for incremental compilation of projects.
+    "incremental": true, // Save .tsbuildinfo files to allow for incremental compilation of projects.
     // "composite": true, // Enable constraints that allow a TypeScript project to be used with project references.
     // "tsBuildInfoFile": "./.tsbuildinfo", // Specify the path to .tsbuildinfo incremental compilation file.
     // "disableSourceOfProjectReferenceRedirect": true, // Disable preferring source files instead of declaration files when referencing composite projects.
@@ -12,8 +12,8 @@
 
     /* Language and Environment */
     "target": "ESNext", // Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
-    "lib": ["DOM", "DOM.Iterable", "ESNext", "ScriptHost"], // Specify a set of bundled library declaration files that describe the target runtime environment.
-    // "jsx": "preserve", // Specify what JSX code is generated.
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Specify a set of bundled library declaration files that describe the target runtime environment.
+    "jsx": "preserve", // Specify what JSX code is generated.
     "experimentalDecorators": true, // Enable experimental support for TC39 stage 2 draft decorators.
     // "emitDecoratorMetadata": true, // Emit design-type metadata for decorated declarations in source files.
     // "jsxFactory": "", // Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'.
@@ -54,7 +54,7 @@
     // "outFile": "./", // Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output.
     // "outDir": "", // Specify an output folder for all emitted files.
     "removeComments": true, // Disable emitting comments.
-    // "noEmit": true, // Disable emitting files from a compilation.
+    "noEmit": true, // Disable emitting files from a compilation.
     // "importHelpers": true, // Allow importing helper functions from tslib once per project, instead of including them per-file.
     // "importsNotUsedAsValues": "remove", // Specify emit/checking behavior for imports that are only used for types.
     // "downlevelIteration": true, // Emit more compliant, but verbose and less performant JavaScript for iteration.
@@ -101,27 +101,7 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true, // Skip type checking .d.ts files that are included with TypeScript.
-    "skipLibCheck": true, // Skip type checking all .d.ts files.
-
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "skipLibCheck": true // Skip type checking all .d.ts files.
   },
-  "exclude": ["node_modules", "dist"],
-  "ts-node": {
-    /* https://typestrong.org/ts-node/docs/configuration/#via-tsconfigjson-recommended */
-
-    // It is faster to skip typechecking.
-    // Remove if you want ts-node to do typechecking.
-    "transpileOnly": true,
-    "files": true,
-    "compilerOptions": {
-      // compilerOptions specified here will override those declared below,
-      // but *only* in ts-node. Useful if you want ts-node and tsc to use
-      // different options with a single tsconfig.json.
-      "module": "ESNext"
-    }
-  }
+  "exclude": ["node_modules", "dist"]
 }

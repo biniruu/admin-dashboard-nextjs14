@@ -1,7 +1,20 @@
 {
   "compilerOptions": {
-    "outDir": "out/spec"
+    /* Editor Support */
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "extends": "./tsconfig.default.json",
-  "include": ["**/*.ts", "tests/**/*.spec.ts", "tests/**/*.test.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "tests/**/*.spec.ts",
+    "tests/**/*.test.ts",
+    "dist/types/**/*.ts"
+  ]
 }

@@ -4,7 +4,6 @@
  */
 
 import type { JestConfigWithTsJest } from 'ts-jest'
-import { defaults as tsjPreset } from 'ts-jest/presets'
 
 /**
  * @property {String[]} moduleDirectories - root directories of the files you will test
@@ -106,8 +105,9 @@ const jestConfig: JestConfigWithTsJest = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '@app/(.*)': '<rootDir>/app/$1',
-    '@utils/(.*)': '<rootDir>/utils/$1',
+    '@app/(.*)': '<rootDir>/src/app/$1',
+    '@components/(.*)': '<rootDir>/src/components/$1',
+    '@utils/(.*)': '<rootDir>/src/utils/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -141,10 +141,10 @@ const jestConfig: JestConfigWithTsJest = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: './src',
+  rootDir: './',
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ['<rootDir>/tests'],
+  roots: ['<rootDir>/src/tests'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -174,9 +174,7 @@ const jestConfig: JestConfigWithTsJest = {
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  // testPathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -196,9 +194,13 @@ const jestConfig: JestConfigWithTsJest = {
   // A map from regular expressions to paths to transformers
   transform: {
     // '^.+\\.jsx$': 'babel-jest',
-    // '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: './tsconfig.test.json',
+      },
+    ],
     // '^.+\\.vue$': 'vue-jest',
-    ...tsjPreset.transform,
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

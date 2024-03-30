@@ -10,11 +10,12 @@
   "extends": "./tsconfig.default.json",
   "include": [
     "**/*.ts",
+    "**/*.config.ts",
     "**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "tests/**/*.spec.ts",
-    "tests/**/*.test.ts",
+    "**/tests/**/*.spec.ts",
+    "**/tests/**/*.test.ts",
     "dist/types/**/*.ts"
   ]
 }

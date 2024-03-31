@@ -26,6 +26,6 @@ describe('Card component', () => {
   test('should have "text-lime" class when the state prop is "positive"', () => {
     render(<Card data={data} />)
 
-    expect(screen.getByTestId('rate').classList.contains('text-lime')).toBe(true)
+    expect(screen.getByTestId('rate')).toHaveClass('text-lime')
   })
 })

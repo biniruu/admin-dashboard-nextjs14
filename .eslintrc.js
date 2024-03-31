@@ -43,16 +43,12 @@ module.exports = {
       /**
        * Jest
        *
-       * plugin:jest/recommended : eslint-plugin-jest 추천 rule set
+       * plugin:jest/recommended : recommended eslint-plugin-jest rules
+       * plugin:jest-dom/recommended : recommended jest-dom rules
+       * plugin:testing-library/react : eslint-plugin-testing-library rules or preset
        */
-      extends: ['plugin:jest/recommended'],
-      files: ['*.spec.js', '*.spec.ts', '*.test.js', '*.test.ts'],
-      rules: {
-        /**
-         * Rules
-         * {@link https://github.com/jest-community/eslint-plugin-jest#rules}
-         */
-      },
+      extends: ['plugin:jest/recommended', 'plugin:jest-dom/recommended', 'plugin:testing-library/react'],
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
     },
     {
       /**

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should render Card component correctly 1`] = `
+<div
+  className="flex w-full cursor-pointer gap-5 rounded bg-bg-soft p-5 hover:bg-hover"
+>
+  <div>
+    icon🚀
+  </div>
+  <div
+    className="flex flex-col gap-5"
+  >
+    <div>
+      title
+    </div>
+    <div
+      className="text-2xl font-medium"
+    >
+      1
+    </div>
+    <div
+      className="text-sm font-light"
+    >
+      <span
+        className="text-lime pr-2"
+        data-testid="rate"
+      >
+        1
+        %
+      </span>
+      detail
+    </div>
+  </div>
+</div>
+`;

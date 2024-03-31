@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { MdSupervisedUserCircle } from 'react-icons/md'
+import renderer from 'react-test-renderer'
 
 import Card from '@components/card/Card'
 import type { CardData } from 'types'
@@ -16,14 +17,10 @@ describe('Card component', () => {
     detail: 'detail',
   }
 
-  test('should show the text and icon element with "data" prop', () => {
-    render(<Card data={data} />)
+  test('should render Card component correctly', () => {
+    const result = renderer.create(<Card data={data} />).toJSON()
 
-    expect(screen.getByText('icon🚀')).toBeInTheDocument()
-    expect(screen.getByText(data.title)).toBeInTheDocument()
-    expect(screen.getByText(data.number)).toBeInTheDocument()
-    expect(screen.getByText(/1%/)).toBeInTheDocument()
-    expect(screen.getByText(data.detail)).toBeInTheDocument()
+    expect(result).toMatchSnapshot()
   })
 
   test('should have "text-lime" class when the state prop is "positive"', () => {

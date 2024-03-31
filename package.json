@@ -9,6 +9,7 @@
     "lint": "next lint",
     "prod-build": "yarn lint && yarn build",
     "test": "jest",
+    "test:update": "jest -u",
     "test:watch": "jest --watch"
   },
   "dependencies": {

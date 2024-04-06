@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import type { ReactNode } from 'react'
 
 // TODO: Remove clickEvent when empty page has its own page
-interface Item {
+export interface Item {
   title: string
   path: string
   icon: ReactNode

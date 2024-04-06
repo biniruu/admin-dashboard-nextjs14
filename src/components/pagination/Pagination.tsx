@@ -25,7 +25,7 @@ function Pagination({ total, itemPerPage, currentPage }: Props) {
   }
 
   return (
-    <div className="flex justify-between p-[0.625rem]">
+    <div className="flex justify-between p-default">
       <button
         className={styles.button}
         disabled={!hasPrev}

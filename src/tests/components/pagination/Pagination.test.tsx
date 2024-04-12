@@ -1,13 +1,15 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import Pagination from '@components/pagination/Pagination'
+
+const replace = jest.fn()
 
 jest.mock('hooks/useNavFunc', () => ({
   __esModule: true,
   default: () => ({
     searchParams: '',
-    replace: jest.fn(),
-    pathname: '',
+    replace,
+    pathname: '/test',
   }),
 }))
 
@@ -45,5 +47,10 @@ describe('Pagination component', () => {
     expect(screen.getByText('previous')).toBeDisabled()
   })
 
-  test.todo('should replace url when handleChangePage function is clicked')
+  test('should increment currentPage by 2 and update URL when clicking on the "next" button', () => {
+    render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
+    fireEvent.click(screen.getByText('next'))
+
+    expect(replace).toHaveBeenCalledWith('/test?page=2')
+  })
 })

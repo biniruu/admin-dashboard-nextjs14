@@ -12,16 +12,29 @@ jest.mock('hooks/useNavFunc', () => ({
 }))
 
 describe('Pagination component', () => {
+  let total: number
+  let itemPerPage: number
+
+  beforeEach(() => {
+    total = 10
+    itemPerPage = 5
+  })
+
   test('should disable the "next" button when currentPage is the last page', () => {
-    const total = 10
-    const itemPerPage = 5
     const currentPage = 2
 
     render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
 
     expect(screen.getByText('next')).toBeDisabled()
   })
-  test.todo('should disable the "previous" button when currentPage is the first page')
+
+  test('should disable the "previous" button when currentPage is the first page', () => {
+    const currentPage = 1
+
+    render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
+
+    expect(screen.getByText('previous')).toBeDisabled()
+  })
   test.todo('should disable both "next" and "previous" buttons when total is 0')
   test.todo('should replace url when handleChangePage function is clicked')
 })

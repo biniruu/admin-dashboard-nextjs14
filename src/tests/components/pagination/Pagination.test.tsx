@@ -53,4 +53,13 @@ describe('Pagination component', () => {
 
     expect(replace).toHaveBeenCalledWith('/test?page=2')
   })
+
+  test('should decrement currentPage by 1 and update URL when clicking on the "previous" button', () => {
+    currentPage = 2
+
+    render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
+    fireEvent.click(screen.getByText('previous'))
+
+    expect(replace).toHaveBeenCalledWith('/test?page=1')
+  })
 })

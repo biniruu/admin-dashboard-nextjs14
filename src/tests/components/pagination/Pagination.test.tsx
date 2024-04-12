@@ -14,14 +14,16 @@ jest.mock('hooks/useNavFunc', () => ({
 describe('Pagination component', () => {
   let total: number
   let itemPerPage: number
+  let currentPage: number
 
   beforeEach(() => {
     total = 10
     itemPerPage = 5
+    currentPage = 1
   })
 
   test('should disable the "next" button when currentPage is the last page', () => {
-    const currentPage = 2
+    currentPage = 2
 
     render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
 
@@ -29,8 +31,6 @@ describe('Pagination component', () => {
   })
 
   test('should disable the "previous" button when currentPage is the first page', () => {
-    const currentPage = 1
-
     render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
 
     expect(screen.getByText('previous')).toBeDisabled()

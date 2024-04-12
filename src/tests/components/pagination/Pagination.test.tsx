@@ -35,6 +35,15 @@ describe('Pagination component', () => {
 
     expect(screen.getByText('previous')).toBeDisabled()
   })
-  test.todo('should disable both "next" and "previous" buttons when total is 0')
+
+  test('should disable both "next" and "previous" buttons when total is 0', () => {
+    total = 0
+
+    render(<Pagination total={total} itemPerPage={itemPerPage} currentPage={currentPage} />)
+
+    expect(screen.getByText('next')).toBeDisabled()
+    expect(screen.getByText('previous')).toBeDisabled()
+  })
+
   test.todo('should replace url when handleChangePage function is clicked')
 })

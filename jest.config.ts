@@ -108,6 +108,7 @@ const jestConfig: JestConfigWithTsJest = {
     '@app/(.*)': '<rootDir>/src/app/$1',
     '@components/(.*)': '<rootDir>/src/components/$1',
     '@utils/(.*)': '<rootDir>/src/utils/$1',
+    '\\.(css|scss)$': 'identity-obj-proxy',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

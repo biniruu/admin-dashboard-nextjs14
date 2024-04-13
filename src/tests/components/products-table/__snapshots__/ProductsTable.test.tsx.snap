@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductsTable component should render the component 1`] = `
+<table
+  className="table w-full"
+>
+  <thead>
+    <tr>
+      <td>
+        title
+      </td>
+      <td>
+        description
+      </td>
+      <td>
+        price
+      </td>
+      <td>
+        created at
+      </td>
+      <td>
+        stock
+      </td>
+      <td>
+        action
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="flex items-center gap-default"
+        >
+          <img
+            alt=""
+            className="rounded-half object-cover"
+            data-nimg="1"
+            decoding="async"
+            height={40}
+            loading="lazy"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="/_next/image?url=%2Fproduct1.jpg&w=96&q=75"
+            srcSet="/_next/image?url=%2Fproduct1.jpg&w=48&q=75 1x, /_next/image?url=%2Fproduct1.jpg&w=96&q=75 2x"
+            style={
+              {
+                "color": "transparent",
+              }
+            }
+            width={40}
+          />
+          Product 1
+        </div>
+      </td>
+      <td>
+        Description 1
+      </td>
+      <td>
+        $
+        10
+      </td>
+      <td>
+        Apr 13 2024 
+      </td>
+      <td>
+        5
+      </td>
+      <td>
+        <div
+          className="flex gap-default"
+        >
+          <a
+            href="/dashboard/products/1"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            <button
+              className="button bg-[teal]"
+            >
+              View
+            </button>
+          </a>
+          <form
+            action={[MockFunction]}
+          >
+            <input
+              name="id"
+              type="hidden"
+              value="1"
+            />
+            <button
+              className="button bg-[crimson]"
+            >
+              Delete
+            </button>
+          </form>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="flex items-center gap-default"
+        >
+          <img
+            alt=""
+            className="rounded-half object-cover"
+            data-nimg="1"
+            decoding="async"
+            height={40}
+            loading="lazy"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="/_next/image?url=%2Fproduct2.jpg&w=96&q=75"
+            srcSet="/_next/image?url=%2Fproduct2.jpg&w=48&q=75 1x, /_next/image?url=%2Fproduct2.jpg&w=96&q=75 2x"
+            style={
+              {
+                "color": "transparent",
+              }
+            }
+            width={40}
+          />
+          Product 2
+        </div>
+      </td>
+      <td>
+        Description 2
+      </td>
+      <td>
+        $
+        20
+      </td>
+      <td>
+        Apr 13 2024 
+      </td>
+      <td>
+        10
+      </td>
+      <td>
+        <div
+          className="flex gap-default"
+        >
+          <a
+            href="/dashboard/products/2"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            <button
+              className="button bg-[teal]"
+            >
+              View
+            </button>
+          </a>
+          <form
+            action={[MockFunction]}
+          >
+            <input
+              name="id"
+              type="hidden"
+              value="2"
+            />
+            <button
+              className="button bg-[crimson]"
+            >
+              Delete
+            </button>
+          </form>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

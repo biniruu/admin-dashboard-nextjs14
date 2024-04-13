@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RightSidebar component should render the component 1`] = `
+<div
+  className="fixed"
+>
+  <div
+    className="relative mb-5 rounded-default px-6 py-5 item"
+  >
+    <div
+      className="absolute bottom-0 right-0 size-1/2"
+    >
+      <img
+        alt=""
+        className="object-contain opacity-20"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
+        sizes="100vw"
+        src="/_next/image?url=%2Fastronaut.png&w=3840&q=75"
+        srcSet="/_next/image?url=%2Fastronaut.png&w=640&q=75 640w, /_next/image?url=%2Fastronaut.png&w=750&q=75 750w, /_next/image?url=%2Fastronaut.png&w=828&q=75 828w, /_next/image?url=%2Fastronaut.png&w=1080&q=75 1080w, /_next/image?url=%2Fastronaut.png&w=1200&q=75 1200w, /_next/image?url=%2Fastronaut.png&w=1920&q=75 1920w, /_next/image?url=%2Fastronaut.png&w=2048&q=75 2048w, /_next/image?url=%2Fastronaut.png&w=3840&q=75 3840w"
+        style={
+          {
+            "bottom": 0,
+            "color": "transparent",
+            "height": "100%",
+            "left": 0,
+            "objectFit": undefined,
+            "objectPosition": undefined,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+    <div
+      className="flex flex-col gap-6"
+    >
+      <div
+        className="font-bold"
+      >
+        🔥 available now
+      </div>
+      <h3
+        className="title first-letter-capital"
+      >
+        how to use the new version of the admin dashboard?
+      </h3>
+      <div
+        className="first-letter-capital text-xs font-medium text-text-soft"
+      >
+        takes 4 minutes to learn
+      </div>
+      <p
+        className="text-sm text-text-soft"
+      >
+        description
+      </p>
+      <button
+        className="flex w-max cursor-pointer items-center gap-default rounded-[0.3125rem] border-0 bg-[#5d57c9] p-default capitalize text-white"
+        onClick={[Function]}
+      >
+        <div>
+          button icon
+        </div>
+        watch
+      </button>
+    </div>
+  </div>
+  <div
+    className="relative mb-5 rounded-default px-6 py-5 item"
+  >
+    <div
+      className="flex flex-col gap-6"
+    >
+      <div
+        className="font-bold"
+      >
+        🚀 coming soon
+      </div>
+      <h3
+        className="title first-letter-capital"
+      >
+        new server actions are available, partial pre-rendering is coming up!
+      </h3>
+      <div
+        className="first-letter-capital text-xs font-medium text-text-soft"
+      >
+        boost your productivity
+      </div>
+      <p
+        className="text-sm text-text-soft"
+      >
+        description
+      </p>
+      <button
+        className="flex w-max cursor-pointer items-center gap-default rounded-[0.3125rem] border-0 bg-[#5d57c9] p-default capitalize text-white"
+        onClick={[Function]}
+      >
+        <div>
+          button icon
+        </div>
+        learn
+      </button>
+    </div>
+  </div>
+</div>
+`;

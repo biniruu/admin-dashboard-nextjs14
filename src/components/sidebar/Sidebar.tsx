@@ -7,7 +7,7 @@ import MenuLink from '../menu-link/MenuLink'
 import menuItems from './menuItems'
 
 import { auth, signOut } from 'auth'
-import { AuthUserInfo } from 'types'
+import type { AuthUserInfo } from 'types'
 
 const hasSession = (session: Session | null): session is Session => {
   return session !== null

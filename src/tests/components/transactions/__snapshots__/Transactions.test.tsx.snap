@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transactions component should render the component 1`] = `
+<div
+  className="rounded-default bg-bg-soft p-5"
+>
+  <h2
+    className="mb-5 font-extralight text-text-soft"
+  >
+    transactions
+  </h2>
+  <table
+    className="w-full table"
+  >
+    <thead>
+      <tr>
+        <td>
+          name
+        </td>
+        <td>
+          status
+        </td>
+        <td>
+          date
+        </td>
+        <td>
+          amount
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div
+            className="flex items-center"
+          >
+            <img
+              alt=""
+              className="user-image mr-4"
+              data-nimg="1"
+              decoding="async"
+              height={40}
+              loading="lazy"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="/_next/image?url=%2Fnoavatar.png&w=96&q=75"
+              srcSet="/_next/image?url=%2Fnoavatar.png&w=48&q=75 1x, /_next/image?url=%2Fnoavatar.png&w=96&q=75 2x"
+              style={
+                {
+                  "color": "transparent",
+                }
+              }
+              width={40}
+            />
+            john doe
+          </div>
+        </td>
+        <td>
+          <span
+            className="status bg-[#f7cb7375]"
+          >
+            pending
+          </span>
+        </td>
+        <td>
+          14.02.2024
+        </td>
+        <td>
+          $
+          3.200
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div
+            className="flex items-center"
+          >
+            <img
+              alt=""
+              className="user-image mr-4"
+              data-nimg="1"
+              decoding="async"
+              height={40}
+              loading="lazy"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="/_next/image?url=%2Fnoavatar.png&w=96&q=75"
+              srcSet="/_next/image?url=%2Fnoavatar.png&w=48&q=75 1x, /_next/image?url=%2Fnoavatar.png&w=96&q=75 2x"
+              style={
+                {
+                  "color": "transparent",
+                }
+              }
+              width={40}
+            />
+            john doe
+          </div>
+        </td>
+        <td>
+          <span
+            className="status bg-[#afd6ee75]"
+          >
+            done
+          </span>
+        </td>
+        <td>
+          14.02.2024
+        </td>
+        <td>
+          $
+          3.200
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div
+            className="flex items-center"
+          >
+            <img
+              alt=""
+              className="user-image mr-4"
+              data-nimg="1"
+              decoding="async"
+              height={40}
+              loading="lazy"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="/_next/image?url=%2Fnoavatar.png&w=96&q=75"
+              srcSet="/_next/image?url=%2Fnoavatar.png&w=48&q=75 1x, /_next/image?url=%2Fnoavatar.png&w=96&q=75 2x"
+              style={
+                {
+                  "color": "transparent",
+                }
+              }
+              width={40}
+            />
+            john doe
+          </div>
+        </td>
+        <td>
+          <span
+            className="status bg-[#f7737375]"
+          >
+            cancelled
+          </span>
+        </td>
+        <td>
+          14.02.2024
+        </td>
+        <td>
+          $
+          3.200
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

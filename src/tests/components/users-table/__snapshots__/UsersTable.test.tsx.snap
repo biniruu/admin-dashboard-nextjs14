@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersTable component should render the component 1`] = `
+<table
+  className="w-full table"
+>
+  <thead>
+    <tr>
+      <td>
+        name
+      </td>
+      <td>
+        email
+      </td>
+      <td>
+        created at
+      </td>
+      <td>
+        role
+      </td>
+      <td>
+        status
+      </td>
+      <td>
+        action
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="flex items-center gap-default"
+        >
+          <img
+            alt=""
+            className="rounded-half object-cover"
+            data-nimg="1"
+            decoding="async"
+            height={40}
+            loading="lazy"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="/_next/image?url=%2Fnoavatar.png&w=96&q=75"
+            srcSet="/_next/image?url=%2Fnoavatar.png&w=48&q=75 1x, /_next/image?url=%2Fnoavatar.png&w=96&q=75 2x"
+            style={
+              {
+                "color": "transparent",
+              }
+            }
+            width={40}
+          />
+          username1
+        </div>
+      </td>
+      <td
+        className="normal-case"
+      >
+        email1@email.com
+      </td>
+      <td>
+        2024/04/24
+      </td>
+      <td>
+        admin
+      </td>
+      <td>
+        active
+      </td>
+      <td>
+        <div
+          className="flex gap-default"
+        >
+          <a
+            href="/dashboard/users/id1"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            <button
+              className="button bg-[teal]"
+            >
+              view
+            </button>
+          </a>
+          <form
+            action={[MockFunction]}
+          >
+            <input
+              name="id"
+              type="hidden"
+              value="id1"
+            />
+            <button
+              className="button bg-[crimson]"
+            >
+              delete
+            </button>
+          </form>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="flex items-center gap-default"
+        >
+          <img
+            alt=""
+            className="rounded-half object-cover"
+            data-nimg="1"
+            decoding="async"
+            height={40}
+            loading="lazy"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="/_next/image?url=%2Fnoavatar.png&w=96&q=75"
+            srcSet="/_next/image?url=%2Fnoavatar.png&w=48&q=75 1x, /_next/image?url=%2Fnoavatar.png&w=96&q=75 2x"
+            style={
+              {
+                "color": "transparent",
+              }
+            }
+            width={40}
+          />
+          username2
+        </div>
+      </td>
+      <td
+        className="normal-case"
+      >
+        email2@email.com
+      </td>
+      <td>
+        2024/04/24
+      </td>
+      <td>
+        user
+      </td>
+      <td>
+        passive
+      </td>
+      <td>
+        <div
+          className="flex gap-default"
+        >
+          <a
+            href="/dashboard/users/id2"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            <button
+              className="button bg-[teal]"
+            >
+              view
+            </button>
+          </a>
+          <form
+            action={[MockFunction]}
+          >
+            <input
+              name="id"
+              type="hidden"
+              value="id2"
+            />
+            <button
+              className="button bg-[crimson]"
+            >
+              delete
+            </button>
+          </form>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

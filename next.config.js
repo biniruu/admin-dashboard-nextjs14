@@ -9,6 +9,9 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  typescript: {
+    tsconfigPath: process.env.NODE_ENV === 'development' ? './tsconfig.json' : './tsconfig.build.json',
+  },
 }
 
 module.exports = nextConfig

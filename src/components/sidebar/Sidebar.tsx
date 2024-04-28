@@ -42,7 +42,7 @@ async function Sidebar() {
 
           return (
             <li key={title}>
-              <span className="my-[0.625rem] text-[0.8125rem] font-bold text-text-soft">{title}</span>
+              <span className="my-2.5 text-[0.8125rem] font-bold text-text-soft">{title}</span>
 
               {list.map(item => (
                 <MenuLink item={item} key={item.title} />

@@ -1,4 +1,4 @@
-import { type Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
@@ -35,8 +35,8 @@ const config: Config = {
         default: '0.625rem',
       },
       padding: {
-        default: '0.625rem'
-      }
+        default: '0.625rem',
+      },
     },
   },
   plugins: [],
